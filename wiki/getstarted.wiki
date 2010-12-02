@@ -1,0 +1,19 @@
+#summary Iniciando o uso do TeXUTFPR.
+
+= Instalação =
+
+== Antes de mais nada: ==
+
+Antes de instalar o TeXUTFPR certifique-se de você tem uma distribuição LaTeX instalada e funcionando em seu ambiente de trabalho.
+
+== Instalando ==
+
+Instruções de como instalar o TeXUTFPR.
+
+= Testando ou Criando Seu Primeiro Documento =
+
+Como rodar o exemplo.
+
+= Obtendo Ajuda =
+
+Como obter ajuda.
