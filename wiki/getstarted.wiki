@@ -1,14 +1,15 @@
-#summary Iniciando o uso do TeXUTFPR.
+#summary Iniciando o uso do UTFPRtex.
+#labels Featured
 
 = Instalação =
 
 == Antes de mais nada: ==
 
-Antes de instalar o TeXUTFPR certifique-se de você tem uma distribuição LaTeX instalada e funcionando em seu ambiente de trabalho.
+Antes de instalar o UTFPRtex certifique-se de você tem uma distribuição LaTeX instalada e funcionando em seu ambiente de trabalho.
 
 == Instalando ==
 
-Instruções de como instalar o TeXUTFPR.
+Instruções de como instalar o UTFPRtex.
 
 = Testando ou Criando Seu Primeiro Documento =
 
