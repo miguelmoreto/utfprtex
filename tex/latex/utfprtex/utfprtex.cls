@@ -161,13 +161,7 @@
 %%%%%%%%%%%%        IDENTIFICATION        %%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}%
-\input{cvs-id.def}
-\CVSExtract$Id: abnt.cls,v 1.27.2.1 2004/11/02 15:04:29 gweber Exp $
-\CVSClass{abnt}{\space Classe abnt (NBR6024, NBR6027, NBR6028, NBR14724)} %substitui \ProvidesPackage (replaces \ProvidesPackage)
-
-% \NeedsTeXFormat{LaTeX2e}%
-% \ProvidesClass{abnt}%
-%  [2002/05/20 version 1 da Classe LaTeX2e ABNT]
+\ProvidesClass{utfprtex}[2011/09/19 Classe Utfprtex por Miguel Moreto - UTFPR - Campus Pato Branco]
 
 %%%%%%   Required packages for the implementation of this class  %%%%%%
 
@@ -180,6 +174,10 @@
 % multicol - better multicolunms
 \RequirePackage{multicol}
 
+\RequirePackage[brazil]{babel}
+
+\RequirePackage{lastpage}
+%\RequirePackage[overload]{textcase}
 
 %%%%%%%%%%%%%      OPTION DECLARATION      %%%%%%%%%%%%
 
@@ -348,6 +346,11 @@
   {}{\PassOptionsToClass{openright}{report}}
 
 
+% Ajustando fonte para arial:
+\renewcommand{\familydefault}{phv}
+
+
+
 %%%%%%%%% Lying to report :-)         ->  working
 %%
 %% Report says:  \newcounter{figure}[chapter], \newcounter{table}[chapter]
@@ -402,6 +405,8 @@
 \newcommand*{\taxaespacoduplo}{1.7}
 
 
+
+
 %%%%%%%%   Load interesting packages : OBSOLET!!!   %%%%%%%%%%%%%%%%
 
 
@@ -440,7 +445,7 @@
 {% 
 % first a warning at the end of the document and than 
 % fake the \setstretch command, not provided by setspace.
-\AtEndDocument{\ClassWarningNoLine{abnt}%
+\AtEndDocument{\ClassWarningNoLine{utfprtex}%
 % warning text
 %   Package 'setspace' needed and was not found.
 %   Please install it or check for errors in loading it.
@@ -467,6 +472,9 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 % equivalent to the option 'nodisplayskipstretch' of setspace.
 \setdisplayskipstretch{1.0}
 
+% Numeração das equações em contador corrido:
+\renewcommand{\theequation}{\arabic{equation}}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%    Setting margins
@@ -475,18 +483,23 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 \ifthenelse{\boolean{ABNTheader}}%
   {%
-   %%%%   VERTICAL LENGHTS  %%%%
+   %%%%   VERTICAL LENGHTS:  %%%%
    % The distance beetwen the top of the header and the top of the text is
    % of 1cm, this is,  1cm=\headheight+\headsep
    % ...but, we have to consider the depth of the header, addin 2mm.
-   \setlength{\headsep}{1.2cm-\headheight}
-   % The distance beetwen the paper border and the number must be 2cm
-   % 2cm=\topmargin+\voffset+1in
-    \setlength{\topmargin}{2cm-1in-\voffset} 
-   % The inferior border must be 2cm
+   \setlength{\headsep}{1cm-\headheight}
+   % The distance beetwen the paper border and the number must be 3cm
+   % 3cm=\topmargin+\voffset+1in
+   \setlength{\topmargin}{3cm-1in-\voffset}
+	 % The inferior border must be 2cm
    % \paperheight=\topmargin+\voffset+1in+\headheight+\headsep+\textheight+2cm
-    \setlength{\textheight}% 
+   \setlength{\textheight}% 
       {\paperheight-\topmargin-\voffset-1in-\headheight-\headsep-2cm}
+		
+	%%%%   HORIZONTAL LENGHTS  %%%%
+	\setlength{\oddsidemargin}{3cm-\hoffset-1in}
+	\setlength{\evensidemargin}{2cm-\hoffset-1in}
+	\setlength{\textwidth}{\paperwidth-\oddsidemargin-\hoffset-1in-2cm}		
   }%
   {% no header is not ABNT!!!
    % Let's fake it: 2cm each vertical margin and de same horizontal margin.
@@ -495,6 +508,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
       {\paperheight-2cm-\footskip-2cm}
   }%
 
+  
 %%%%   HORIZONTAL LENGHTS   %%%%
 % The left margin is 3cm, and the right margin equals to 2cm.
 \setlength{\oddsidemargin}{3cm-\hoffset-1in}
@@ -1110,6 +1124,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 \newcommand{\ABNTchaptersize}{\huge}
 
+
 % Defining how is typeset the \chapter
 \def\@makechapterhead#1{%
   {%
@@ -1200,12 +1215,12 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
                            {-3.5ex \@plus -1ex \@minus -.2ex}%
                            {2.3ex \@plus.2ex}%
                            {\espaco{simples}\normalfont%
-                            \ABNTsectionfont\Large}}
+                            \ABNTsectionfont}}
 \renewcommand\subsection{\ABNTstartsection{subsection}{2}{\z@}%
                            {-3.25ex\@plus -1ex \@minus -.2ex}%
                            {1.5ex \@plus .2ex}%
                            {\espaco{simples}\normalfont%
-                            \ABNTsectionfont\large}}
+                            \ABNTsectionfont}}
 \renewcommand\subsubsection{\ABNTstartsection{subsubsection}{3}{\z@}%
                            {-3.25ex\@plus -1ex \@minus -.2ex}%
                            {1.5ex \@plus .2ex}%
@@ -1500,24 +1515,6 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
    \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
   }%
 
-%%%%%%%%%%%%%% Flexibility on captions %%%%%%%%%%%%%%%%%
-%
-% Temporarely removed. Not really required.
-%
-%\newcommand{\ABNTcaptionsep}{: }
-%
-%\long\def\@makecaption#1#2{%
-%  \vskip\abovecaptionskip
-%  \sbox\@tempboxa{#1\ABNTcaptionsep #2}%
-%  \ifdim \wd\@tempboxa >\hsize
-%    #1\ABNTcaptionsep #2\par
-%  \else
-%    \global \@minipagefalse
-%    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
-%  \fi
-%  \vskip\belowcaptionskip}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Environment `citado'=`citacao', similar to quoation, but with 4cm of
 %% extra left margin, in a smaller font and simple line spacing.
@@ -1546,6 +1543,108 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 
 
+% ***** Definição da Lista de Símbolos e siglas *****
+% Baseado no codigo proposto no manual da classe abntex abntex-classe-doc.pdf
+%
+% \simb[entrada na lista de símbolos]{símbolo}:
+% Escreve o simbolo no texto e uma entrada na Lista de Símbolos.
+% Se o parâmetro opcional á omitido, usa-se o parâmetro obrigatório.
+\newcommand{\simb}[2][]{%
+	\settowidth{\simbwidth}{\ensuremath{#2}}\ignorespaces
+	\ifthenelse{\lengthtest{\simbwidth > \simbmaxwidth}} % Se a nova sigla é maior,
+		{\settowidth{\simbmaxwidth}{\ensuremath{#2}}} % seta o valor da maior com o tamanho da atual.
+		{}\ignorespaces
+	\ifthenelse{\equal{#1}{}}
+		{\addcontentsline{los}{simbolo}{\protect\parbox[t]{\protect\simbmaxwidth}{\ensuremath{#2}}}}
+		{\addcontentsline{los}{simbolo}{\protect\parbox[t]{\protect\simbmaxwidth}{\ensuremath{#2}} \protect\parbox[t]{\protect\textwidth - \protect\simbmaxwidth}{#1}}}\ignorespaces
+	\ensuremath{#2}}
+	
+% \listadesimbolos: comando que imprime a lista de simbolos
+\newcommand{\listadesimbolos}{
+	\pretextualchapter{Lista de S\'imbolos}
+	{\setlength{\parindent}{0cm}
+	 % Abrindo arquivo para leitura e verificando se ele existe:
+		 \newread\instream
+		 \immediate\openin\instream= \jobname.tmp
+		 \ifeof\instream 
+		 	\message{\jobname.tmp nao existe ainda. Rode o latex novamente.} % Na primeira vez.
+       \else 
+       	\immediate\read\instream to \auxcommand % O comando no arquivo temporario é salvo em \auxcommand.
+       	\immediate\closein\instream % Fechando o arquivo.
+       	\auxcommand % Executando o comando lido.
+       \fi
+	
+	 \addtolength{\simbmaxwidth}{1em}
+	 \@starttoc{los}}}
+% como a entrada ser´a impressa
+\newcommand\l@simbolo[2]{
+	\parbox[b]{\textwidth}{#1}
+}
+
+\newlength{\siglawidth}
+\newlength{\siglamaxwidth}
+\newlength{\simbwidth}
+\newlength{\simbmaxwidth}
+
+% \sigla[entrada na lista de siglas]{sigla}:
+% Escreve a sigla no texto e uma entrada na Lista de Siglas.
+% Se o parâmetro opcional á omitido, usa-se o parâmetro obrigatório.
+\newcommand{\sigla}{\@ifstar{\siglaStar}{\siglaNotStar}}	
+\newcommand{\siglaNotStar}[2][]{%
+	\settowidth{\siglawidth}{#2}\ignorespaces
+	\ifthenelse{\lengthtest{\siglawidth > \siglamaxwidth}}% Se a nova sigla é maior,
+		{\settowidth{\siglamaxwidth}{#2}}% seta o valor da maior com o tamanho da atual.
+		{}\ignorespaces
+\nomenclature{#2}{#1}%
+({#2})}
+
+\newcommand{\siglaStar}[2][]{%
+	\settowidth{\siglawidth}{#2}\ignorespaces
+	\ifthenelse{\lengthtest{\siglawidth > \siglamaxwidth}}% Se a nova sigla é maior,
+		{\settowidth{\siglamaxwidth}{#2}}% seta o valor da maior com o tamanho da atual.
+		{}\ignorespaces
+\nomenclature{#2}{#1}%
+{#2}}
+
+\newcommand{\fazlistasiglas}[1][Lista de Siglas]{% Este comando redefine o codigo relevante do nomencl.sty
+\def\thenomenclature{%
+   \if@openright\cleardoublepage\else\clearpage\fi%
+   \pretextualchapter{\nomname}
+    \if@intoc\addcontentsline{toc}{chapter}{\nomname}\fi%
+  \nompreamble
+  \list{}{%
+    \labelwidth\nom@tempdim
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \itemsep\nomitemsep
+    \let\makelabel\nomlabel}}
+\def\endthenomenclature{%
+  \endlist
+  \nompostamble}%
+\makenomenclature%
+\renewcommand{\nomname}{#1}
+\renewcommand{\nomentryend}{.}%
+\setlength{\nomitemsep}{-\parsep}% Tirando espaço extre entre as entradas na lista.
+}
+
+% \listadesiglas: comando que imprime a lista de siglas
+\newcommand{\listadesiglas}{
+		 % Abrindo arquivo para leitura e verificando se ele existe:
+		 \newread\instream
+		 \immediate\openin\instream=\jobname.tmp
+		 \ifeof\instream 
+		 	\message{\jobname.tmp nao existe ainda. Rode o latex novamente.} % Na primeira vez.
+       \else 
+         \immediate\read\instream to \auxcommand % O primeiro comando é o da lista de simbolos.
+       	\immediate\read\instream to \auxcommand % O comando no arquivo temporario é salvo em \auxcommand.
+       	\immediate\closein\instream % Fechando o arquivo.
+       	\auxcommand % Executando o comando lido.
+       \fi
+%		 \addtolength{\siglamaxwidth}{1ex}
+\printnomenclature[\the\siglamaxwidth]}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                   Pre-textual elements                   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1570,7 +1669,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
   {\renewcommand{\ABNTorientadorname}{#1}%
    \renewcommand{\ABNTorientadordata}{#2}}
 \newcommand{\orientadornameformat}{}
-\newcommand{\orientadorformat}{\large}
+\newcommand{\orientadorformat}{\normalsize}
 
 \providecommand{\ABNTcoorientadordata}{}
 \providecommand{\ABNTcoorientadorname}{}
@@ -1578,7 +1677,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
   {\renewcommand{\ABNTcoorientadorname}{#1}%
    \renewcommand{\ABNTcoorientadordata}{#2}}
 \newcommand{\coorientadornameformat}{}
-\newcommand{\coorientadorformat}{\large}
+\newcommand{\coorientadorformat}{\normalsize}
 
 \providecommand{\ABNTtitulodata}{}
 \newcommand{\titulo}[1]{\renewcommand{\ABNTtitulodata}{#1}}
@@ -1598,6 +1697,39 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 \newcommand{\ABNTifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
 
+
+\providecommand{\ABNTpalavraschave}{}
+\newcommand{\palavraschave}[1]%
+  {\renewcommand{\ABNTpalavraschave}{#1}}
+
+\providecommand{\ABNTkeywords}{}
+\newcommand{\keywords}[1]%
+  {\renewcommand{\ABNTkeywords}{#1}}
+
+
+
+% ******* PARA A FOLHA DE APROVAÇÃO ******
+\providecommand{\ABNTtextoaprovacaodata}{}
+\newcommand{\textoaprovacao}[1]{\renewcommand{\ABNTtextoaprovacaodata}{#1}}
+
+\providecommand{\ABNTprimeiroassinadata}{}
+\newcommand{\primeiroassina}[1]{\renewcommand{\ABNTprimeiroassinadata}{#1}}
+
+\providecommand{\ABNTsegundoassinadata}{}
+\newcommand{\segundoassina}[1]{\renewcommand{\ABNTsegundoassinadata}{#1}}
+
+\providecommand{\ABNTterceiroassinadata}{}
+\newcommand{\terceiroassina}[1]{\renewcommand{\ABNTterceiroassinadata}{#1}}
+
+\providecommand{\ABNTquartoassinadata}{}
+\newcommand{\quartoassina}[1]{\renewcommand{\ABNTquartoassinadata}{#1}}
+
+\providecommand{\ABNTlocaldiadata}{}
+\newcommand{\localdia}[1]{\renewcommand{\ABNTlocaldiadata}{#1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%555
+%  MONTAGEM DOS ELEMENTOS PRE-TEXTUAIS
 
 \newcommand{\capa}%
 {%
@@ -1642,64 +1774,81 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 \espaco{\ABNTespacodefault}%Corrige bug 114
 }% end of \capa
 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+%%% FOLHA DE ROSTO
 \newcommand{\folhaderosto}%
 {%
 \begin{titlepage}
-\espaco{1.1}
 \ABNTifnotempty{\ABNTautordata}%
   {%
   \begin{center}
-    \autorformat\ABNTautordata
+    \autorformat\MakeUppercase{\ABNTautordata}
   \end{center}
   }
 \vfill\vfill\vfill
 \ABNTifnotempty{\ABNTtitulodata}%
   {%
    \begin{center}
-     {\tituloformat\ABNTtitulodata\par}
+     {\tituloformat\MakeUppercase{\ABNTtitulodata}\par}
    \end{center}
   }%
-\ABNTifnotempty{\ABNTcomentariodata}%
-  {%
-   \vspace{.8cm}
-   \hspace{.45\textwidth}
-     \begin{minipage}{.5\textwidth}
-       \begin{espacosimples}
-         {\comentarioformat\ABNTcomentariodata}\par
-       \end{espacosimples}
-     \end{minipage}
-   }
 \vspace{.8cm}
-\begin{center}
-\ABNTifnotempty{\ABNTorientadordata}%
-  {%
-   {\orientadornameformat\ABNTorientadorname}
-   {\orientadorformat\ABNTorientadordata}\protect\\
-   \vspace{0.7cm}
-  }
-\ABNTifnotempty{\ABNTcoorientadordata}
-  {%
-   {\coorientadornameformat\ABNTcoorientadorname}
-   {\coorientadorformat\ABNTcoorientadordata}
-  }
-\end{center}
+ \hspace{.45\textwidth}
+   \begin{minipage}{.5\textwidth}
+     \begin{espacosimples}
+			\ABNTifnotempty{\ABNTtextoaprovacaodata}%
+			{%
+				{\comentarioformat\ABNTtextoaprovacaodata}\par%
+			}%
+			\ABNTifnotempty{\ABNTorientadordata}%
+			{%
+				\vspace{1em}%
+				{\orientadornameformat\ABNTorientadorname}%
+				{\orientadorformat\ABNTorientadordata}\par%
+			}%
+			\ABNTifnotempty{\ABNTcoorientadordata}%
+			{%
+				\vspace{1em}%
+				{\coorientadornameformat\ABNTcoorientadorname}
+				{\coorientadorformat\ABNTcoorientadordata}
+			}%
+     \end{espacosimples}
+   \end{minipage}
+ 
+%\vspace{.8cm}
+%\begin{center}
+%\ABNTifnotempty{\ABNTorientadordata}%
+  %{%
+   %{\orientadornameformat\ABNTorientadorname}
+   %{\orientadorformat\ABNTorientadordata}\protect\\
+   %\vspace{0.7cm}
+  %}
+%\ABNTifnotempty{\ABNTcoorientadordata}
+  %{%
+   %{\coorientadornameformat\ABNTcoorientadorname}
+   %{\coorientadorformat\ABNTcoorientadordata}
+  %}
+%\end{center}
 \vfill
-\begin{center}
-\begin{espacosimples}
-  \setlength{\parskip}{.3cm}
-  \ABNTifnotempty{\ABNTinstituicaodata}%
-    {%
-     \setlength{\parskip}{0cm}
-     {\instituicaoformat\ABNTinstituicaodata\par}
-     \setlength{\parskip}{.3cm}\par
-     
-    }
-\end{espacosimples}
-\end{center}
+%\begin{center}
+%\begin{espacosimples}
+  %\setlength{\parskip}{.3cm}
+  %\ABNTifnotempty{\ABNTinstituicaodata}%
+    %{%
+     %\setlength{\parskip}{0cm}
+     %{\instituicaoformat\ABNTinstituicaodata\par}
+     %\setlength{\parskip}{.3cm}\par
+     %
+    %}
+%\end{espacosimples}
+%\end{center}
 \vfill\vfill
 \begin{center}
   \ABNTifnotempty{\ABNTlocaldata}
-      {{\localformat\ABNTlocaldata}\par}
+      {{\localformat \MakeUppercase{\ABNTlocaldata}}\par}
     \ABNTifnotempty{\ABNTdatadata}
       {{\dataformat\ABNTdatadata}}
 
@@ -1716,30 +1865,74 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 % Obs.: this code will be reimplemented for better LaTeX concept support
 \newcommand{\ABNTabstractname}{Abstract}
-\renewenvironment{abstract}%
+\newenvironment{Abstract}%
   {%
    \if@openright\cleardoublepage\else\clearpage\fi%
-   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{abstract.}}{}
+   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{abstract.}}{}%
    \pretextualchapter{\ABNTabstractname}%
    \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
    \begin{espacosimples}%
+	 \noindent%
   }%
-  {\end{espacosimples}\newpage}%abstract
+  {%
+	\par%
+	\vspace{1em}%
+	\noindent\textbf{Keywords}: \ABNTkeywords.%
+	\end{espacosimples}\newpage}%abstract
 
 %%%%%%%%%%%   resumo  %%%%%%%%%%%
 % Ambiente para Resumo. O mesmo efeito do abstract, mas em portugues. 
 %
 \newcommand{\resumoname}{Resumo}
-\newenvironment{resumo}%
+\newenvironment{Resumo}%
   {%
    \if@openright\cleardoublepage\else\clearpage\fi%
-   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{resumo.}}{}
+   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{resumo.}}{}%
    \pretextualchapter{\resumoname}%
    \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
    \begin{espacosimples}%
+	 \noindent%
   }%
-  {\end{espacosimples}\newpage}%abstract
+  {%
+	\par%
+	\vspace{1em}%
+	\noindent\textbf{Palavras-chave}: \ABNTpalavraschave.%
+	\end{espacosimples}\newpage}%abstract
 
+%%%%%%%%%%%   epigrafe  %%%%%%%%%%%
+\newenvironment{Epigrafe}[1]%
+  {%
+   \if@openright\cleardoublepage\else\clearpage\fi%
+   %\pretextualchapter{Dedicat\'oria}%
+	 \newcommand{\epigrafeautor}{#1}
+   \hspace{0.2\textwidth}
+   \begin{minipage}{0.6\textwidth}
+   \vspace{0.3\textheight}
+   \begin{itshape}
+  }%
+  {\end{itshape}
+	 \vspace{1cm}\par
+	 \raggedleft \epigrafeautor
+	 \end{minipage}
+  }
+
+\newenvironment{Agradecimentos}%
+  {%
+   \if@openright\cleardoublepage\else\clearpage\fi%
+   \pretextualchapter{Agradecimentos}%
+  }%
+  {%
+  }
+
+% Dedicatória simples com título
+\newenvironment{Dedicatoria}%
+  {%
+   \if@openright\cleardoublepage\else\clearpage\fi%
+   \pretextualchapter{Dedicat\'oria}%
+   %\begin{center}
+  }%
+  {%\end{center}
+  }
 
 %%%%%%% Folha de aprovacao %%%%%%%
 
@@ -1845,21 +2038,30 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 
 % logo
-\newcommand{\abnTeX}{{\scshape a\kern-.13exb\kern-.13exn}\kern-.13ex\TeX}
+\newcommand{\utfprTeX}{{\scshape U\kern-.13exTFP\kern-.13exR}\kern-.13ex\TeX}
 
 %%% final message - announcement %%%%
 
 \AtEndDocument{%
-\newcommand{\spABNT}{\space\space\space\space\space\space\space\space}%
-\typeout{+-------------------------------------------------------------------+}
-\typeout{%
-| Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |}%
-\typeout{%
-|\spABNT\spABNT\space\space
-http://abntex.codigolivre.org.br\space\spABNT\spABNT|}%
-%\typeout{%
-%| Sua opiniao eh de grande ajuda para nos.\spABNT Ass: grupo abnTeX |}%
-\typeout{+-------------------------------------------------------------------+}
+\typeout{+===================================================================+}
+\typeout{|      Modelo de teses e dissertações da UTFPR campus Pato Branco    }
+\typeout{|             }
+\typeout{|      Desenvolvido por Miguel Moreto                                }
+\typeout{|      2011                                     }
+\typeout{|      Versão: $Rev$                                            }
+\typeout{|   $LastChangedDate: 2009-07-17 15:33:40 -0300 (sex, 17 jul 2009)$  }
+\typeout{+===================================================================+}
+
+% Salvando arquivo temporário com dados a serem utilizados na próxima "rodada"
+% do latex.
+\newwrite\outputstream
+\immediate\openout\outputstream=\jobname.tmp
+% Salvando comando contendo a largura da maior sigla:
+\immediate\write\outputstream{\string\setlength{\simbmaxwidth}{\the\simbmaxwidth}}
+\immediate\write\outputstream{\string\setlength{\siglamaxwidth}{\the\siglamaxwidth}}
+% Fechando stream:
+\immediate\closeout\outputstream
+
 }%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
