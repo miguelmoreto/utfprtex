@@ -16,6 +16,8 @@ O utfprtex requer alguns pacotes para funcionar corretamente, normalmente sua di
   * `setspace`
   * `nomencl` (para a lista de siglas)
   * `abntcite` (para as referências bibliográficas)
+  * `tocloft`
+  * `caption`
 
 = Preâmbulo =
 
