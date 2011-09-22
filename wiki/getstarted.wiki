@@ -1,5 +1,6 @@
 #summary Iniciando o uso do UTFPRtex.
 #labels Featured
+#sidebar wikiTOC
 
 = Instalação =
 
