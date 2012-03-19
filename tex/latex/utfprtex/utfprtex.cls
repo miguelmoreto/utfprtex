@@ -416,7 +416,7 @@
    % fontenc[T1] --> removed for possible pdf compatibility
    % inputenc[latin1]: more common input encoding
    \typeout{ABNT -> incluindo inputenc[latin1]}%
-   \RequirePackage[latin1]{inputenc}%
+   \Package[latin1]{inputenc}%
    % amsmath: AMS math environments for LaTeX
    \typeout{ABNT -> incluindo amsmath}%
    \RequirePackage{amsmath}%
@@ -1160,32 +1160,72 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 }
 
 % redefining to apply tocnumpageabnt
-\renewcommand\l@chapter[2]{%
-  \ifnum \c@tocdepth >\m@ne
-    \addpenalty{-\@highpenalty}%
-    \vskip 1.0em \@plus\p@
-    \setlength\@tempdima{1.5em}%
-    \begingroup
-      \ifthenelse{\boolean{ABNTpagenumstyle}}
-        {\renewcommand{\@pnumwidth}{3.5em}}
-        {}
-      \parindent \z@ \rightskip \@pnumwidth
-      \parfillskip -\@pnumwidth
-      \leavevmode \normalsize\ABNTtocchapterfont
-      \advance\leftskip\@tempdima
-      \hskip -\leftskip
-      #1\nobreak\hfil \nobreak%
-      \ifthenelse{\boolean{ABNTpagenumstyle}}
-         {%
-          \hb@xt@\@pnumwidth{\hss 
-            \ifthenelse{\not\equal{#2}{}}{{\normalfont p.\thinspace#2}}{}}\par
-         }
-         {%
-          \hb@xt@\@pnumwidth{\hss #2}\par
-         }
-      \penalty\@highpenalty
-    \endgroup
-  \fi}
+%\renewcommand\l@chapter[2]{%
+  %\ifnum \c@tocdepth >\m@ne
+    %\addpenalty{-\@highpenalty}%
+    %\vskip 1.0em \@plus\p@
+    %\setlength\@tempdima{1.5em}%
+    %\begingroup
+      %\ifthenelse{\boolean{ABNTpagenumstyle}}
+        %{\renewcommand{\@pnumwidth}{3.5em}}
+        %{}
+      %\parindent \z@ \rightskip \@pnumwidth
+      %\parfillskip -\@pnumwidth
+      %\leavevmode \normalsize\ABNTtocchapterfont
+      %\advance\leftskip\@tempdima
+      %\hskip -\leftskip
+      %#1\nobreak\hfil \nobreak%
+      %\ifthenelse{\boolean{ABNTpagenumstyle}}
+         %{%
+          %\hb@xt@\@pnumwidth{\hss 
+            %\ifthenelse{\not\equal{#2}{}}{{\normalfont p.\thinspace#2}}{}}\par
+         %}
+         %{%
+          %\hb@xt@\@pnumwidth{\hss #2}\par
+         %}
+      %\penalty\@highpenalty
+    %\endgroup
+  %\fi}
+
+
+
+% Formatação do sumário
+\renewcommand*\l@chapter[2]{
+    \@dottedtocline{1}{0pt}{1.2em}
+	{\normalsize\ABNTtocchapterfont
+	\ifthenelse{\boolean{ABNTcapchap}}%
+	    {\MakeUppercase{#1}}%
+	    {#1}}
+	{#2}}
+
+\renewcommand*\l@section[2]{
+    \@dottedtocline{1}{0pt}{2em}
+	{\normalsize\ABNTsectionfont
+	 \ifthenelse{\boolean{ABNTcapsec}}%
+	    {\MakeUppercase{#1}}%
+	    {#1}}
+	{#2}}
+
+\renewcommand*\l@subsection[2]{
+    \@dottedtocline{1}{0pt}{2.8em}
+	{\normalsize\ABNTsectionfont{#1}}
+	{#2}}
+
+\renewcommand*\l@subsubsection[2]{
+    \@dottedtocline{1}{0pt}{3.6em}
+	{\normalsize\ABNTsectionfont{#1}}
+	{#2}}
+
+\renewcommand*\l@paragraph[2]{
+    \@dottedtocline{1}{0pt}{4.4em}
+	{\normalsize\ABNTsectionfont\itshape{#1}}
+	{#2}}
+
+\renewcommand*\l@subparagraph[2]{
+    \@dottedtocline{1}{25pt}{5.2em}
+	{\normalsize\ABNTsectionfont\itshape{#1}}
+	{#2}}
+
 
 % redefine to apply style
 \renewcommand\part{%
@@ -1250,7 +1290,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 \providecommand{\appendixname}{Ap\^endice} % for completeness ;-)
 \newcommand{\anapchaptername}{\relax}
 
-\newcommand*{\ABNTtravessao}{-$\!$-}
+\newcommand*{\ABNTtravessao}{-}
 
 \def\@anapchapter[#1]#2%
       {
@@ -1576,6 +1616,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 	
 	 \addtolength{\simbmaxwidth}{1em}
 	 \@starttoc{los}}}
+
 % como a entrada ser´a impressa
 \newcommand\l@simbolo[2]{
 	\parbox[b]{\textwidth}{#1}
@@ -2038,7 +2079,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 
 % logo
-\newcommand{\utfprTeX}{{\scshape U\kern-.13exTFP\kern-.13exR}\kern-.13ex\TeX}
+\newcommand{\utfprTeX}{{\scshape U\kern-.13extfp\kern-.13exr}\kern-.13ex\TeX}
 
 %%% final message - announcement %%%%
 

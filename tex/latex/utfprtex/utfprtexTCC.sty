@@ -16,6 +16,21 @@
 \RequirePackage{ifthen}
 \RequirePackage[brazil]{babel}
 \RequirePackage[latin1]{inputenc}
+
+\RequirePackage{tocloft}
+
+% Para inserir o 'Figura X: ' na lista de figuras
+\newlength{\mylen}
+
+\renewcommand{\cftfigpresnum}{\figurename\enspace}
+\renewcommand{\cftfigaftersnum}{:}
+\settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum}
+\addtolength{\cftfignumwidth}{\mylen}
+
+
+% Formatando Captions das figuras e tabelas:
+\usepackage[font=small,labelfont=bf]{caption}
+
 %\RequirePackage{abnt}
 
 %\makeatletter	%Para que ele entenda o @
