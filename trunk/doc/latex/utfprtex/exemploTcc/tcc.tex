@@ -10,22 +10,27 @@
 
 % Sempre mantenha seu Tex / Miktex atualizado.
 
+% O pacote utfprtexTCC está jundo com o utfprtex e contém definições específicas para trabalhos de conclusão de curso. Outros pacotes serão definidos para outros tipos de documentos, como dissertações e teses.
 \usepackage{utfprtexTCC}
 
 \usepackage[latin1]{inputenc}
 
 
 % A linha abaixo chama o pacote hyperref, configurado para usar o programa 
-% dvipdfm.exe na conversão do .dvi para o .pdf. Se você utiliza outra forma de
+% dvips.exe na conversão do .dvi para o postscript (.ps). Se você utiliza outra forma de
 % gerar o pdf, altere a linha abaixo com a opção adequada. Veja o manual do 
 % hyperref para saber as opções disponíveis e outras configurações do pacote.
+%
+% Sugestão: Gere o pdf utilizando o dvips.exe que converte o .dvi para postscript e
+% faça a subsequente conversão de .ps para .pdf. Caso contrário, configure adequadamente 
+% o pacote hyperref.
+% 
+% Insira seus dados nos campos pdfauthor, pdftitle, pdfsubject e pdfcreator, estes dados
+% aparecerão nas propriedades do arquivo pdf.
+\usepackage[dvips,linktocpage=true,pdfauthor={Seu nome},pdftitle={Titulo do documento},pdfsubject={Exemplo de documento},pdfcreator={LaTeX e Dvips}]{hyperref}
 
-% Sugestão: Gere o pdf utilizando o dvipdfm.exe que converte direto
-% de dvi para pdf. Caso contrário, configure adequadamente o pacote hyperref.
-%\usepackage[dvips,linktocpage=true,pdfauthor={Seu nome},pdftitle={Titulo do documento},pdfsubject={Exemplo de documento},pdfcreator={LaTeX e Dvips}]{hyperref}
+\usepackage[alf,abnt-emphasize=bf,abnt-etal-text=it,bibjustif,abnt-etal-cite=2,abnt-etal-list=0]{abntcite}
 
-\usepackage[alf,abnt-emphasize=bf,abnt-etal-text=it,bibjustif,abnt-etal-cite=2,abnt-etal-list=0,recuo=0.5cm]{abntcite}
-%abnt-url-package=hyperref,
 % Se você quiser utilizar o estilo de citação numérica, ex. [1], [2], comente a linha acima e use o código que está comentado nas 3 linhas abaixo:
   %\usepackage[num,bibjustif,recuo=1cm]{abntcite}
   %\usepackage{colchetesrefs} % Coloca colchetes na lista de referências ao final do documento.
@@ -37,16 +42,16 @@
 \fazlistasiglas[Lista de Abreviaturas e Siglas] % Parâmetro opcional é o título da lista.
 
 
-\usepackage[font={bf,small}]{caption}
-
+% Pacote para inserção de figuras em formato .eps.
 \usepackage{graphicx}
 
-
-
+% Se quiseres trocar a fonte do documento, descomente a linha abaixo. O parâmetro cmr
+% indica a fonte ComputerModern, aquela padrão do latex.
 %\renewcommand{\familydefault}{cmr}
+
 % A seguinte linha evita algumas mensagens de warning por parte do hyperref.
 % Comentar se o pacote hyperref não estiver sendo utilizado.
-%\pdfstringdefDisableCommands{\edef\uppercase{}}
+\pdfstringdefDisableCommands{\edef\uppercase{}}
 
 
 % Os comandos a seguir ajustam o posicionamento dos floats (figures e tables).
@@ -137,9 +142,11 @@ Acreditar é mais fácil do que pensar. Daí existem muito mais crentes do que pens
 \begin{Agradecimentos}
 Aqui são os agradecimentos.
 \end{Agradecimentos}
+
 % RESUMO:
 \begin{Resumo}
 Escreva aqui o texto de seu resumo... 
+\utfprTeX
 \end{Resumo}
 
 % ABSTRACT
@@ -148,28 +155,33 @@ Write here the English version of your Resumo...
 \end{Abstract}
 
 
+
+
+
 \listadefiguras
 
 \listadetabelas
 
 \listadesiglas
 
-%\listadesimbolos
+\listadesimbolos
 
 \sumario
+
+
 
 \chapter{Cassini finds hydrocarbon rains may fill Titan lakes}
 
 CASSINI IMAGING CENTRAL LABORATORY FOR OPERATIONS
 Posted: January 29, 2009
 
-Recent images of Titan from NASA's Cassini spacecraft affirm the presence of lakes of liquid hydrocarbons by capturing changes in the lakes brought on by rainfall
-
+Recent images of Titan from NASA's Cassini spacecraft affirm the presence of lakes of liquid hydrocarbons by capturing changes in the lakes brought on by rainfall.
 For several years, Cassini scientists have suspected that dark areas near the north and south poles of Saturn's largest satellite might be liquid-filled lakes. An analysis published today in the journal Geophysical Research Letters of recent pictures of Titan's south polar region reveals new lake features not seen in images of the same region taken a year earlier. The presence of extensive cloud systems covering the area in the intervening year suggests that the new lakes could be the result of a large rainstorm and that some lakes may thus owe their presence, size and distribution across Titan's surface to the moon's weather and changing seasons.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.5\linewidth]{PIA11147_modest.eps}
+	\captionsetup{width=0.70\textwidth}
+	\includegraphics[width=0.7\linewidth]{PIA11147_modest.eps}
 	\caption{These mosaics of the south pole of Saturn's moon Titan, made from images taken almost one year apart, show changes in dark areas that may be lakes filled by seasonal rains of liquid hydrocarbons. Credit: NASA/JPL/Space Science Institute.}
 	\label{fig:mosaics}
 \end{figure}
@@ -204,7 +216,7 @@ Exemplo de citação longa:
 The Cassini-Huygens mission is a cooperative project of NASA, the European Space Agency (ESA) and the Italian Space Agency. The Jet Propulsion Laboratory  (JPL), a division of the California Institute of Technology in Pasadena, manages the Cassini-Huygens mission for NASA's Science Mission Directorate, Washington.
 \end{citado}
 
-
+% Corrigir:
 \subsection{Testes e exemplos de lista de siglas}
 
 Testes da lista de siglas:
@@ -229,22 +241,22 @@ Esta é uma sigla em que os parênteses não aparecem: \sigla*[Sigla em Que os Parê
 
 % Sintaxe do comando \simb:
 % \simb[descrição]{símbolo}:
-	%
-%\begin{equation}
-%\phi = \vec{\alpha}\otimes \upsilon\omega\psi^{jk}_{n-1}
-%\end{equation}
-%
-%Onde:
-%
-%\simb[]{\phi}: Angulo phi.
-%
-%\simb[alpha]{\vec{\alpha}}: Alfa.
-%
-%\simb[Função de teste da lista de símbolos. Está é uma descrição longa para um único símbolo]{\upsilon\omega\psi^{jk}_{n-1}}: Um simbolo grande.
-%
-%Este símbolo (\simb[Gradiente]{\nabla}) foi inserido no texto, fora do ambiente \textit{equation}.
+	
+\begin{equation}
+\phi = \vec{\alpha}\otimes \upsilon\omega\psi^{jk}_{n-1}
+\end{equation}
 
-%\simb[teste]{\upsilon\omega\psi^{jk}_{n-1}}
+Onde:
+
+\simb[]{\phi}: Angulo phi.
+
+\simb[alpha]{\vec{\alpha}}: Alfa.
+
+\simb[Função de teste da lista de símbolos. Está é uma descrição longa para um único símbolo]{\upsilon\omega\psi^{jk}_{n-1}}: Um simbolo grande.
+
+Este símbolo (\simb[Gradiente]{\nabla}) foi inserido no texto, fora do ambiente \textit{equation}.
+
+\simb[teste]{\upsilon\omega\psi^{jk}_{n-1}}
 
 %\the\simbmaxwidth
 
@@ -254,7 +266,7 @@ Esta é uma sigla em que os parênteses não aparecem: \sigla*[Sigla em Que os Parê
 
 \cite{Anderson1977,Glover2002}
 
-\citeonline{abntex-doc}
+Conforme \citeonline{abntex-doc} a metodologia proposta é, bla bla bla...
 
 % Bibliografia o arquivo
 
@@ -273,8 +285,10 @@ For more than 30 years, Villanova University astronomer Ed Guinan has been plagu
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.5\linewidth]{DI-Her-art.eps}
+	\captionsetup{width=.75\textwidth}
 	\caption{The binary star DI Herculis consists of two B stars separated by about one-fifth the Earth-Sun distance. Both stars are about 5 times the mass of our Sun. No artist's rendition, like the one shown here, can possibly portray the fact that these stars have about 50 times the surface brightness of the Sun. \textit{Michael Carroll}}
 	\label{fig:artist}
+	
 \end{figure}
 
 Every year, Guinan and his colleagues would observe the 8.5 - magnitude star. The two stars orbit each other in a plane lined up perfectly with Earth's line of sight, and they eclipse each other every 10.55 days. Thanks to these eclipses, which have been recorded since 1900, Guinan could make exceedingly precise measurements of the stars' masses, sizes, luminosities, and orbital characteristics.
@@ -286,6 +300,7 @@ For years, Guinan looked for a third star in the system, or some other factor th
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.5\linewidth]{DI_Herculis_precession.eps}
+	\captionsetup{width=0.5\linewidth}
 	\caption{This illustration shows the precession in DI Herculis. The point at which the two stars come closest (periastron) in their mutual orbit advances (precesses) from orbit to orbit. But the amount of precession in DI Her is less than what theory predicted. The illustration is not to scale. \textit{S\&T: Casey Reed}}
 	\label{fig:orbital}
 \end{figure}
@@ -299,6 +314,7 @@ In this unusual arrangement, gravitational forces created by the misaligned equa
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.5\linewidth]{DIHerculis_illo-crop.eps}
+	\captionsetup{width=0.5\linewidth}
 	\caption{This illustration demonstrates how the equatorial bulges of the two stars in DI Herculis are nearly perpendicular to the binary's orbital plane. This unusual configuration explains why DI Her's orbital precession is not in accordance with theoretical predictions.
  \textit{Simon Albrecht}}
 	\label{fig:equatorial}
