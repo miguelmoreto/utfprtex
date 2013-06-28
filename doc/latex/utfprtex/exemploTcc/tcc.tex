@@ -15,6 +15,7 @@
 
 \usepackage[latin1]{inputenc}
 
+\usepackage{amsmath}
 
 % A linha abaixo chama o pacote hyperref, configurado para usar o programa 
 % dvips.exe na conversão do .dvi para o postscript (.ps). Se você utiliza outra forma de
@@ -114,8 +115,7 @@
 
 \begin{document} % Início do documento.
 
-% Monta a capa (no novo modelo da BU, a capa é feita separadamente, o texto inicia com a folha de rosto):
-%\capa
+% A capa é feita separadamente, o texto inicia com a folha de rosto
 
 % Monta a folha de rosto:
 \folhaderosto
@@ -155,9 +155,6 @@ Write here the English version of your Resumo...
 \end{Abstract}
 
 
-
-
-
 \listadefiguras
 
 \listadetabelas
@@ -180,7 +177,7 @@ For several years, Cassini scientists have suspected that dark areas near the no
 
 \begin{figure}[htbp]
 	\centering
-	\captionsetup{width=0.70\textwidth}
+	\captionsetup{width=0.70\textwidth} % Para configurar a largura do caption.
 	\includegraphics[width=0.7\linewidth]{PIA11147_modest.eps}
 	\caption{These mosaics of the south pole of Saturn's moon Titan, made from images taken almost one year apart, show changes in dark areas that may be lakes filled by seasonal rains of liquid hydrocarbons. Credit: NASA/JPL/Space Science Institute.}
 	\label{fig:mosaics}
@@ -286,7 +283,7 @@ For more than 30 years, Villanova University astronomer Ed Guinan has been plagu
 	\centering
 	\includegraphics[width=0.5\linewidth]{DI-Her-art.eps}
 	\captionsetup{width=.75\textwidth}
-	\caption{The binary star DI Herculis consists of two B stars separated by about one-fifth the Earth-Sun distance. Both stars are about 5 times the mass of our Sun. No artist's rendition, like the one shown here, can possibly portray the fact that these stars have about 50 times the surface brightness of the Sun. \textit{Michael Carroll}}
+	\caption{The binary star DI Herculis consists of two B stars separated by about one-fifth the Earth-Sun distance. Both stars are about 5 times the mass of our Sun. No artist's rendition, like the one shown here, can possibly portray the fact that these stars have about 50 times the surface brightness $\phi$ of the Sun. \textit{Michael Carroll}}
 	\label{fig:artist}
 	
 \end{figure}
