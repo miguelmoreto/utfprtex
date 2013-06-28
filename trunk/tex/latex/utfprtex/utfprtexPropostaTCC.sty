@@ -9,7 +9,7 @@
 %% You are free to modify this file under the LPPL.
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{utfprtexTCC}
+\ProvidesPackage{utfprtexPropostaTCC}
 
 %\PassOptionsToClass{pnumromarab}{abnt}
 
@@ -31,35 +31,55 @@
 % Formatando Captions das figuras e tabelas:
 \usepackage[font=small,labelfont=bf]{caption}
 
-%\RequirePackage{abnt}
 
 %\makeatletter	%Para que ele entenda o @
 
-% ** Altera definições da ABNT para adaptar à UFPR
 
-%% ************* CAPA **************
-%\renewcommand{\capa}{
-%\begin{titlepage}
-%\espaco{1.1}
-%
-%\begin{center}
-	%\large\ABNTchapterfont\ABNTautordata
-%\end{center}
-%
-%\vspace{7.5cm}
-%
-%\begin{center}
-	%\large\ABNTchapterfont\ABNTtitulodata\par
-%\end{center}
-%
-%\vfill
-%
-%\begin{center}
-	%\textbf{\ABNTlocaldata}\par
-	%\textbf{\ABNTdatadata}
-%\end{center}
-%\end{titlepage}
-%}% end of \capa
+% ************* CAPA **************
+
+\newcommand{\capa}%
+{%
+% replacing \begin{titlepage}
+\if@twocolumn
+  \@restonecoltrue\onecolumn
+\else
+  \@restonecolfalse\newpage
+\fi
+\thispagestyle{empty}%
+\setcounter{page}\z@
+\vspace*{1cm}
+\espaco{1.1}
+\ABNTifnotempty{\ABNTautordata}%
+  {%
+  \begin{center}
+    \autorformat\ABNTautordata
+  \end{center}
+  }
+\vfill\vfill
+\ABNTifnotempty{\ABNTtitulodata}%
+  {%
+   \begin{center}
+     {\tituloformat\ABNTtitulodata\par}
+   \end{center}
+  }%
+
+\vspace*{1cm}
+\vfill\vfill\vfill
+\begin{center}
+  \begin{espacosimples}
+    \setlength{\parskip}{.3cm}
+    \ABNTifnotempty{\ABNTlocaldata}
+      {{\localformat\ABNTlocaldata}\par}
+    \ABNTifnotempty{\ABNTdatadata}
+      {{\dataformat\ABNTdatadata}}
+  \end{espacosimples}
+\end{center}
+\vspace*{1cm}
+% replacing \end{titlepage} by its meaning
+\if@restonecol\twocolumn \else \newpage \fi
+\espaco{\ABNTespacodefault}%Corrige bug 114
+}% end of \capa
+
 %
 %% ******** FOLHA DE ROSTO *********
 %\newcommand{\esporient}[2]{
@@ -141,7 +161,7 @@
 
 
 % DIFINICOES DE TEXTOS:
-\renewcommand{\ABNTtextoaprovacaodata}{Trabalho de Conclusão de Curso de graduação, apresentado à disciplina de Trabalho de Conclusão de Curso 2, do Curso de Engenharia Elétrica da Coordenação de Engenharia Elétrica - {COELT} - da Universidade Tecnológica Federal do Paraná - UTFPR, Campus Pato Branco, como requisito parcial para obtenção do título de Engenheiro.}
+\renewcommand{\ABNTtextoaprovacaodata}{Proposta de Trabalho de Conclusão de Curso de graduação, apresentado à disciplina de Trabalho de Conclusão de Curso 1, do Curso de Engenharia Elétrica da Coordenação de Engenharia Elétrica - {COELT} - da Universidade Tecnológica Federal do Paraná - UTFPR, Campus Pato Branco, como requisito parcial para obtenção do título de Engenheiro.}
 
 
 
