@@ -12,7 +12,7 @@ Você pode instalar o UTFPRTeX de duas maneiras, veja abaixo:
 
 === A partir do download do arquivo compactado ===
 
-  * Baixe na página de download deste projeto o arquiv .zip com a versão mais recente do UTFPRTeX (http://code.google.com/p/utfprtex/downloads/list);
+  * Baixe na página inicial deste projeto o arquivo .zip com a versão mais recente do UTFPRTeX;
   * Uma vez baixado o arquivo, descompacte-o em uma pasta exclusiva;
   * Entre no menu de configurações (_settings_) do MiKTeX (Menu iniciar/programas/MiKTeX 2.X/Maintenance (Admin)/Settings (Admin));
   * Na aba _Roots_ clique no botão _Add_ e adicione a pasta onde você descompactou o UTFPRTeX;
