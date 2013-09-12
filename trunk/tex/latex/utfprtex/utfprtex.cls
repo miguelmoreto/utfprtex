@@ -1131,7 +1131,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 %  \noindent\rule{\textwidth}{1.7pt}\\\par
   \normalfont\ABNTchaptersize\ABNTchapterfont%
   \espaco{simples}%
-  \vspace*{30pt}%
+  %\vspace*{30pt}%
   \noindent%
   \parbox[b]{\textwidth}{%
     \parbox[t]{4ex}{\thechapter}%
@@ -1143,7 +1143,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
       }%
     \vspace*{0cm}
     }\\[2pt]%
-  \vspace{50pt}%
+  %\vspace{50pt}%
   }%
 }
 
@@ -1155,7 +1155,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
      {\MakeUppercase{#1}}%
      {#1}
     \par}%
-  \vspace{45pt}%
+  %\vspace{45pt}%
   \par%
 }
 
@@ -1360,7 +1360,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
           \thechapter{} \ABNTtravessao{} }
     }
     {}
-  \vspace*{30pt}
+  %\vspace*{30pt}
 %
   \raggedright\espaco{1.2}\par  
   \begin{list}{}{%
@@ -1383,7 +1383,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
               {\MakeUppercase{#1}}%
               {#1}}
   \end{list}
-  \par\vspace{50pt}%
+  %\par\vspace{50pt}%
   }%
 }
 
@@ -1700,23 +1700,42 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 \newcommand{\instituicao}[1]{\renewcommand{\ABNTinstituicaodata}{#1}}
 \newcommand{\instituicaoformat}{\scshape}
 
-\providecommand{\ABNTautordata}{}
-\newcommand{\autor}[1]{\renewcommand{\ABNTautordata}{#1}}
+\providecommand{\ABNTautorAdata}{}
+\newcommand{\autorA}[1]{\renewcommand{\ABNTautorAdata}{#1}}
+\providecommand{\ABNTautorBdata}{}
+\newcommand{\autorB}[1]{\renewcommand{\ABNTautorBdata}{#1}}
+\providecommand{\ABNTautorAdados}{}
+\newcommand{\autorAdados}[1]{\renewcommand{\ABNTautorAdados}{#1}}
+\providecommand{\ABNTautorBdados}{}
+\newcommand{\autorBdados}[1]{\renewcommand{\ABNTautorBdados}{#1}}
+
+
+
 \newcommand{\autorformat}{\large\ABNTsectionfont}
 
+% Nome e tipo de string do orientador(a):
 \providecommand{\ABNTorientadordata}{}
 \providecommand{\ABNTorientadorname}{}
-\newcommand{\orientador}[2][Orientador:\vspace{1mm}\\]%
+\newcommand{\orientador}[2][Orientador]%
   {\renewcommand{\ABNTorientadorname}{#1}%
    \renewcommand{\ABNTorientadordata}{#2}}
+% Dados do orientador: endereço, etc.
+\providecommand{\ABNTorientadorDados}{}
+\newcommand{\orientadorDados}[1]{\renewcommand{\ABNTorientadorDados}{#1}}	
+% Formato de typeset do orientador:
 \newcommand{\orientadornameformat}{}
 \newcommand{\orientadorformat}{\normalsize}
 
+% Nome e tipo de string do orientador(a):
 \providecommand{\ABNTcoorientadordata}{}
 \providecommand{\ABNTcoorientadorname}{}
-\newcommand{\coorientador}[2][Co-orientador:\vspace{1mm}\\]%
+\newcommand{\coorientador}[2][Coorientador]%
   {\renewcommand{\ABNTcoorientadorname}{#1}%
    \renewcommand{\ABNTcoorientadordata}{#2}}
+% Dados do coorientador: endereço, etc.	
+\providecommand{\ABNTcoorientadorDados}{}
+\newcommand{\coorientadorDados}[1]{\renewcommand{\ABNTcoorientadorDados}{#1}}	
+% Formato de typeset do coorientador:
 \newcommand{\coorientadornameformat}{}
 \newcommand{\coorientadorformat}{\normalsize}
 
@@ -1727,6 +1746,9 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 \providecommand{\ABNTcomentariodata}{}
 \newcommand{\comentario}[1]{\renewcommand{\ABNTcomentariodata}{#1}}
 \newcommand{\comentarioformat}{}
+
+\providecommand{\ABNTarea}{}
+\newcommand{\areaconcentracao}[1]{\renewcommand{\ABNTarea}{#1}}
 
 \providecommand{\ABNTlocaldata}{}
 \newcommand{\local}[1]{\renewcommand{\ABNTlocaldata}{#1}}
@@ -1823,10 +1845,10 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 \newcommand{\folhaderosto}%
 {%
 \begin{titlepage}
-\ABNTifnotempty{\ABNTautordata}%
+\ABNTifnotempty{\ABNTautorAdata}%
   {%
   \begin{center}
-    \autorformat\MakeUppercase{\ABNTautordata}
+    \autorformat\MakeUppercase{\ABNTautorAdata}
   \end{center}
   }
 \vfill\vfill\vfill

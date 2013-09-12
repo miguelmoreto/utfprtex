@@ -46,25 +46,43 @@
   \@restonecolfalse\newpage
 \fi
 \thispagestyle{empty}%
-\setcounter{page}\z@
-\vspace*{1cm}
+\setcounter{page}\z@%
+%
+\begin{center}%
+UNIVERSIDADE TECNOLÓGICA FEDERAL DO PARANÁ\\
+DEPARTAMENTO ACADÊMICO DE ELÉTRICA\\
+CURSO DE ENGENHARIA ELÉTRICA
+%  \autorformat\ABNTautordata%
+\end{center}%
+	%
+	\vfill\
+%\vspace*{1cm}
 \espaco{1.1}
-\ABNTifnotempty{\ABNTautordata}%
+\ABNTifnotempty{\ABNTautorAdata}%
   {%
   \begin{center}
-    \autorformat\ABNTautordata
+    \autorformat\ABNTautorAdata
   \end{center}
   }
-\vfill\vfill
+	\ABNTifnotempty{\ABNTautorBdata}%
+  {%
+  \begin{center}
+    \autorformat\ABNTautorBdata
+  \end{center}
+  }
+\vfill
 \ABNTifnotempty{\ABNTtitulodata}%
   {%
    \begin{center}
      {\tituloformat\ABNTtitulodata\par}
    \end{center}
   }%
-
-\vspace*{1cm}
-\vfill\vfill\vfill
+	\vfill%
+   \begin{center}
+     PROPOSTA DE TRABALHO DE CONCLUSÃO DE CURSO
+   \end{center}
+%\vspace*{1cm}
+\vfill\vfill
 \begin{center}
   \begin{espacosimples}
     \setlength{\parskip}{.3cm}
@@ -74,7 +92,7 @@
       {{\dataformat\ABNTdatadata}}
   \end{espacosimples}
 \end{center}
-\vspace*{1cm}
+%\vspace*{1cm}
 % replacing \end{titlepage} by its meaning
 \if@restonecol\twocolumn \else \newpage \fi
 \espaco{\ABNTespacodefault}%Corrige bug 114
@@ -99,22 +117,24 @@
 %\espaco{1.1}
 %
 %\begin{center}
-	%\large\ABNTchapterfont\ABNTautordata
+%	\large\ABNTchapterfont\ABNTautordata\\
+	%\line(1,0){1\textwidth}
+%	\hrulefill
 %\end{center}
 %
 %\vspace{7.5cm}
 %
 %\begin{center}
-	%\large\ABNTchapterfont\ABNTtitulodata\par
+%	\large\ABNTchapterfont\ABNTtitulodata\par
 %\end{center}
 %
 %\vspace{2cm}
 %
 %\hspace{.3\textwidth}
 %\begin{minipage}{.55\textwidth}
-	%\begin{espacosimples}
-		%\ABNTcomentariodata\par
-	%\end{espacosimples}
+%	\begin{espacosimples}
+%		\ABNTcomentariodata\par
+%	\end{espacosimples}
 %\end{minipage}
 %
 %\hspace{.3\textwidth}
@@ -164,7 +184,59 @@
 \renewcommand{\ABNTtextoaprovacaodata}{Proposta de Trabalho de Conclusão de Curso de graduação, apresentado à disciplina de Trabalho de Conclusão de Curso 1, do Curso de Engenharia Elétrica da Coordenação de Engenharia Elétrica - {COELT} - da Universidade Tecnológica Federal do Paraná - UTFPR, Campus Pato Branco, como requisito parcial para obtenção do título de Engenheiro.}
 
 
+% ******* PARA A FICHA DE DADOS ******
+\providecommand{\DadosAutorFicha}{}
+\newcommand{\DadosAutor}[1]{\renewcommand{\DadosAutorFicha}{#1}}
 
+% ******* MONTA A FICHA DE DADOS *******
+\newcommand{\FichaDeDados}%
+{%
+\noindent\hrulefill\par
+\noindent\parbox[t]{.3\linewidth}{Título}
+\parbox[t]{.69\linewidth}{\ABNTtitulodata}\par\vspace{3mm}
+\noindent\hrulefill\par
+\ABNTifnotempty{\ABNTautorAdata}
+{%
+  \noindent\parbox[t]{.3\linewidth}{Acadêmico}
+	\parbox[t]{.69\linewidth}{\ABNTautorAdata \\ \ABNTautorAdados}\\ \par
+}%
+\ABNTifnotempty{\ABNTautorBdata}%
+{%
+  \noindent\parbox[t]{.3\linewidth}{Acadêmico}
+	\parbox[t]{.69\linewidth}{\ABNTautorBdata \\ \ABNTautorBdados}\par\vspace{3mm}
+}%
+\noindent\hrulefill\par
+\noindent\parbox[t]{.3\linewidth}{\ABNTorientadorname}
+\ABNTifnotempty{\ABNTorientadordata}%
+{%
+  \parbox[t]{.69\linewidth}{\ABNTorientadordata \\ \ABNTorientadorDados}\par\vspace{3mm}
+}%
+\noindent\hrulefill\par
+\ABNTifnotempty{\ABNTcoorientadordata}%
+{%
+  \noindent\parbox[t]{.3\linewidth}{\ABNTcoorientadorname}
+	\parbox[t]{.69\linewidth}{\ABNTcoorientadordata \\ \ABNTcoorientadorDados}\par\vspace{3mm}
+	\noindent\hrulefill\par
+}%
+\noindent\parbox[t]{.3\linewidth}{Área de concentração}
+\ABNTifnotempty{\ABNTarea}%
+{%
+  \parbox[t]{.69\linewidth}{\ABNTarea}
+}%
+\par\noindent\hrulefill
+
+%\par
+%\begin{minipage}{.3\linewidth}
+%	\begin{espacosimples}
+% Título\par
+%	\end{espacosimples}
+%\end{minipage}
+%\begin{minipage}{.7\linewidth}
+%	\begin{espacosimples}
+%		\ABNTtitulodata\par
+%	\end{espacosimples}
+%\end{minipage}%
+}% end of \FichaDeDados
 
 %
 %
