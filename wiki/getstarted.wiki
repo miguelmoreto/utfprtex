@@ -47,7 +47,7 @@ Se você quiser usar um cliente SVN na linha de comando do Windows (ou Linux), b
 
 = Testando ou Criando Seu Primeiro Documento =
 
-Como rodar o exemplo.
+Atenção: os exemplos de TCC e proposta de TCC estão na pasta docs do UTFPRTeX. Para que os exemplos funcionem corretamente, não os edite diretamente na pasta do modelo. Copie os arquivos para outra pasta específica para seu documento, sendo essa não localizada na pasta do modelo.
 
 = Obtendo Ajuda =
 
