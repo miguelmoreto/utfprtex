@@ -348,7 +348,7 @@
 
 % Ajustando fonte para arial:
 \renewcommand{\familydefault}{phv}
-
+\newcommand{\espacoAfterChapter}{2cm}
 
 
 %%%%%%%%% Lying to report :-)         ->  working
@@ -1143,7 +1143,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
       }%
     \vspace*{0cm}
     }\\[2pt]%
-  %\vspace{50pt}%
+  \vspace{\espacoAfterChapter}%
   }%
 }
 
@@ -1155,7 +1155,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
      {\MakeUppercase{#1}}%
      {#1}
     \par}%
-  %\vspace{45pt}%
+  \vspace{\espacoAfterChapter}%
   \par%
 }
 
@@ -1840,87 +1840,6 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
-%%% FOLHA DE ROSTO
-\newcommand{\folhaderosto}%
-{%
-\begin{titlepage}
-\ABNTifnotempty{\ABNTautorAdata}%
-  {%
-  \begin{center}
-    \autorformat\MakeUppercase{\ABNTautorAdata}
-  \end{center}
-  }
-\vfill\vfill\vfill
-\ABNTifnotempty{\ABNTtitulodata}%
-  {%
-   \begin{center}
-     {\tituloformat\MakeUppercase{\ABNTtitulodata}\par}
-   \end{center}
-  }%
-\vspace{.8cm}
- \hspace{.45\textwidth}
-   \begin{minipage}{.5\textwidth}
-     \begin{espacosimples}
-			\ABNTifnotempty{\ABNTtextoaprovacaodata}%
-			{%
-				{\comentarioformat\ABNTtextoaprovacaodata}\par%
-			}%
-			\ABNTifnotempty{\ABNTorientadordata}%
-			{%
-				\vspace{1em}%
-				{\orientadornameformat\ABNTorientadorname}%
-				{\orientadorformat\ABNTorientadordata}\par%
-			}%
-			\ABNTifnotempty{\ABNTcoorientadordata}%
-			{%
-				\vspace{1em}%
-				{\coorientadornameformat\ABNTcoorientadorname}
-				{\coorientadorformat\ABNTcoorientadordata}
-			}%
-     \end{espacosimples}
-   \end{minipage}
- 
-%\vspace{.8cm}
-%\begin{center}
-%\ABNTifnotempty{\ABNTorientadordata}%
-  %{%
-   %{\orientadornameformat\ABNTorientadorname}
-   %{\orientadorformat\ABNTorientadordata}\protect\\
-   %\vspace{0.7cm}
-  %}
-%\ABNTifnotempty{\ABNTcoorientadordata}
-  %{%
-   %{\coorientadornameformat\ABNTcoorientadorname}
-   %{\coorientadorformat\ABNTcoorientadordata}
-  %}
-%\end{center}
-\vfill
-%\begin{center}
-%\begin{espacosimples}
-  %\setlength{\parskip}{.3cm}
-  %\ABNTifnotempty{\ABNTinstituicaodata}%
-    %{%
-     %\setlength{\parskip}{0cm}
-     %{\instituicaoformat\ABNTinstituicaodata\par}
-     %\setlength{\parskip}{.3cm}\par
-     %
-    %}
-%\end{espacosimples}
-%\end{center}
-\vfill\vfill
-\begin{center}
-  \ABNTifnotempty{\ABNTlocaldata}
-      {{\localformat \MakeUppercase{\ABNTlocaldata}}\par}
-    \ABNTifnotempty{\ABNTdatadata}
-      {{\dataformat\ABNTdatadata}}
-
-\end{center}
-\end{titlepage}
-}% end of \folhaderosto
-
-
-
 
 %%%%%%%%%%%   abstract  %%%%%%%%%%%
 % Ambiente para Abstract. Por default, coloca fonte de tamanho 10pt
@@ -2110,7 +2029,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 \typeout{|      Modelo de teses e dissertações da UTFPR campus Pato Branco    }
 \typeout{|             }
 \typeout{|      Desenvolvido por Miguel Moreto                                }
-\typeout{|      2011                                     }
+\typeout{|      2013                                     }
 \typeout{|      Versão: $Rev$                                            }
 \typeout{|   $LastChangedDate: 2009-07-17 15:33:40 -0300 (sex, 17 jul 2009)$  }
 \typeout{+===================================================================+}

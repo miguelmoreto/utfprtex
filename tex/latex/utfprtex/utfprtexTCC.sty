@@ -11,7 +11,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{utfprtexTCC}
 
-%\PassOptionsToClass{pnumromarab}{abnt}
 
 \RequirePackage{ifthen}
 \RequirePackage[brazil]{babel}
@@ -33,95 +32,23 @@
 
 %\RequirePackage{abnt}
 
-%\makeatletter	%Para que ele entenda o @
+% Definição de comandos específicos de TCC:
+\providecommand{\ABNTata}{}
+\newcommand{\atanumero}[1]{\renewcommand{\ABNTata}{#1}}
 
-% ** Altera definições da ABNT para adaptar à UFPR
+\providecommand{\ABNTBancaAdata}{}
+\newcommand{\bancaA}[1]{\renewcommand{\ABNTBancaAdata}{#1}}
 
-%% ************* CAPA **************
-%\renewcommand{\capa}{
-%\begin{titlepage}
-%\espaco{1.1}
-%
-%\begin{center}
-	%\large\ABNTchapterfont\ABNTautordata
-%\end{center}
-%
-%\vspace{7.5cm}
-%
-%\begin{center}
-	%\large\ABNTchapterfont\ABNTtitulodata\par
-%\end{center}
-%
-%\vfill
-%
-%\begin{center}
-	%\textbf{\ABNTlocaldata}\par
-	%\textbf{\ABNTdatadata}
-%\end{center}
-%\end{titlepage}
-%}% end of \capa
-%
-%% ******** FOLHA DE ROSTO *********
-%\newcommand{\esporient}[2]{
-	%\leftskip 0em
-	%\@tempdima 5.5em
-	%\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-	%{#1#2\hfil}}
-%
-%\newcommand{\espcoorient}[2]{
-	%\leftskip 0em
-	%\@tempdima 7em
-	%\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-	%{#1#2\hfil}}
-%
-%\renewcommand{\folhaderosto}{
-%\begin{titlepage}
-%\espaco{1.1}
-%
-%\begin{center}
-	%\large\ABNTchapterfont\ABNTautordata
-%\end{center}
-%
-%\vspace{7.5cm}
-%
-%\begin{center}
-	%\large\ABNTchapterfont\ABNTtitulodata\par
-%\end{center}
-%
-%\vspace{2cm}
-%
-%\hspace{.3\textwidth}
-%\begin{minipage}{.55\textwidth}
-	%\begin{espacosimples}
-		%\ABNTcomentariodata\par
-	%\end{espacosimples}
-%\end{minipage}
-%
-%\hspace{.3\textwidth}
-%\begin{minipage}{.55\textwidth}
-	%\begin{espacosimples}
-		%\esporient{\numberline {Orientador:}}{\ignorespaces\ABNTorientadordata}
-	%\end{espacosimples}
-%\end{minipage}
-%
-%\ABNTifnotempty{\ABNTcoorientadordata}{
-	%\hspace{.3\textwidth}
-	%\begin{minipage}{.55\textwidth}
-		%\begin{espacosimples}
-			%\espcoorient{\numberline {Co-Orientador:}}{\ignorespaces\ABNTcoorientadordata}
-		%\end{espacosimples}
-	%\end{minipage}}
-%
-%\vfill
-%
-%\begin{center}
-	%\textbf{\ABNTlocaldata}\par
-	%\textbf{\ABNTdatadata}
-%\end{center}
-%
-%\end{titlepage}
-%
-%}% end of \folhaderosto
+\providecommand{\ABNTBancaBdata}{}
+\newcommand{\bancaB}[1]{\renewcommand{\ABNTBancaBdata}{#1}}
+
+\providecommand{\ABNTBancaCdata}{}
+\newcommand{\bancaC}[1]{\renewcommand{\ABNTBancaCdata}{#1}}
+
+\providecommand{\ABNTBancaDdata}{}
+\newcommand{\bancaD}[1]{\renewcommand{\ABNTBancaDdata}{#1}}
+
+\newcommand{\bancaformat}{\bfseries}
 
 % Altera o tamanho das fontes dos capítulos e dos apêndices
 \renewcommand{\ABNTchapterfont}{\bfseries}
@@ -145,12 +72,113 @@
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+%%% FOLHA DE ROSTO
+
+	
+\newcommand{\folhaderosto}%
+{%
+\begin{titlepage}
+\ABNTifnotempty{\ABNTautorAdata}%
+  {%
+  \begin{center}
+    \autorformat\MakeUppercase{\ABNTautorAdata}
+  \end{center}
+  }
+\ABNTifnotempty{\ABNTautorBdata}%
+  {%
+  \begin{center}
+    \autorformat\MakeUppercase{\ABNTautorBdata}
+  \end{center}
+  }%
+\vfill
+\ABNTifnotempty{\ABNTtitulodata}%
+  {%
+   \begin{center}
+     {\tituloformat\MakeUppercase{\ABNTtitulodata}\par}
+   \end{center}
+  }%
+\vspace{.8cm}
+ \hspace{.45\textwidth}
+   \begin{minipage}{.5\textwidth}
+     \begin{espacosimples}
+			\ABNTifnotempty{\ABNTtextoaprovacaodata}%
+			{%
+				{\comentarioformat\ABNTtextoaprovacaodata}\par%
+			}%
+			\ABNTifnotempty{\ABNTorientadordata}%
+			{%
+				\vspace{1em}%
+				{\orientadornameformat\ABNTorientadorname}%
+				{\orientadorformat\ABNTorientadordata}\par%
+			}%
+			\ABNTifnotempty{\ABNTcoorientadordata}%
+			{%
+				\vspace{1em}%
+				{\coorientadornameformat\ABNTcoorientadorname}
+				{\coorientadorformat\ABNTcoorientadordata}
+			}%
+     \end{espacosimples}
+   \end{minipage}
+\vfill
+\begin{center}
+  \ABNTifnotempty{\ABNTlocaldata}
+      {{\localformat \MakeUppercase{\ABNTlocaldata}}\par}
+    \ABNTifnotempty{\ABNTdatadata}
+      {{\dataformat\ABNTdatadata}}
+\end{center}
+\end{titlepage}
+}% end of \folhaderosto
 
 %
 %
-%\newcommand{\termodeaprovacao}{
-%\begin{titlepage}
+\newcommand{\termodeaprovacao}{
+\begin{titlepage}
 %
+\pretextualchapter{Termo de Aprovação}
+\vspace{2cm}
+\par
+O Trabalho de Conclusão de Curso intitulado \ABNTtitulodata~ foi considerado \textbf{APROVADO} de acordo com a ata da banca
+examinadora N$^\circ$ \ABNTata~ de \ABNTdatadata.
+\vspace{2cm}
+\begin{center}
+Fizeram parte da banca examinadora os professores:
+
+			\ABNTifnotempty{\ABNTorientadordata}%
+			{%
+				\vspace{1em}%
+				{\bancaformat\ABNTorientadordata}\par%
+			}%
+			\ABNTifnotempty{\ABNTcoorientadordata}%
+			{%
+				\vspace{1em}%
+				{\bancaformat\ABNTcoorientadordata}\par
+			}%
+			\ABNTifnotempty{\ABNTBancaAdata}%
+			{%
+				\vspace{1em}%
+				{\bancaformat\ABNTBancaAdata}\par
+			}%
+			\ABNTifnotempty{\ABNTBancaBdata}%
+			{%
+				\vspace{1em}%
+				{\bancaformat\ABNTBancaBdata}\par
+			}%
+			\ABNTifnotempty{\ABNTBancaCdata}%
+			{%
+				\vspace{1em}%
+				{\bancaformat\ABNTBancaCdata}\par
+			}%
+			\ABNTifnotempty{\ABNTBancaDdata}%
+			{%
+				\vspace{1em}%
+				{\bancaformat\ABNTBancaDdata}\par
+			}%
+\end{center}
+
+\end{titlepage}
+}
+
 %\pretextualchapter{Termo de Aprovação}
 %
 %\vspace{-0.25cm}

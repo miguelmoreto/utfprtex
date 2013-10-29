@@ -68,47 +68,38 @@
 %%%%%%%%% Início das definições iniciais %%%%%%%%%
 
 
-\autor{Nome do Aluno}
+\autorA{Nome do Aluno A}
+%\autorB{Nome do Aluno B}
 \titulo{Exemplo de Trabalho de Conclusão de Curso} % Título do documento
 
-% Nos 3 comandos abaixo o parâmetro opcional entre [] pode ser preenchido para o caso de
+% Nos 2 comandos abaixo o parâmetro opcional entre [] pode ser preenchido para o caso de
 % alguma dessas pessoas ser mulher. Se não especificado, vale o valor default.
-%  Valores default: Orientador, Co-orientador e Coordenador.
-\orientador[Orientador: ]{Nome do Orientador}
-\coorientador[Co-orientadora: ]{Nome da co-orientadora}
-%\coordenadorPGTEX[Coordenadora]{Grau}{Nome do coordenador} % Coordenador do PPGEEL
+%  Valores default: Orientador e Co-orientador.
+\orientador{Prof. Dr. Carl Sagan}
+\coorientador[Co-orientadora: ]{Marie Curie}
 
-%\areaconcentracaoPGTEX{Area de concentração} % Área de concentração
-%\concentrationareaPGTEX{Area de concentração em inglês} % Área de concentração em inglês
 \palavraschave{\LaTeX, formatação de textos, exemplos} % Palavras chave
 \keywords{\LaTeX, text formatting, examples} % Palavras chave em inglês
 
 % Instruções para banca examinadora:
-%   -> O primeiro membro da banca, definido pelo comando \bancaAPGTEX é o presidente da banca
-%      (provavelmente o orientador).
+%   -> O primeiro membro da banca, será automaticamente o orientador, o presidente da banca.
 %   -> O segundo membro será automaticamente o Co-orientador se ele existir e for definido pelo
 %      comando \coorientadorPGTEX
-%   -> Os demais membros da banca são definidos pelos comandos \bancaBPGTEX, \bancaCPGTEX, \bancaDPGTEX e
-%      \bancaEPGTEX.
-%   -> Deixando os parametros dos comandos dos membros da banca vazios (exemplo \bancaAPGTEX{}), fará
-%      com que as respectivas linhas de assinatura não apareçam.
-%   -> Os comandos suportam um parâmetro adicional, entre colchetes, onde é colocado o grau de titulação
-%      do respectivo membro da banca. Se este parâmetro adicional não for utilizado, então o valor padrão
-%      "Doutor" é atribuido.
+%   -> Os demais membros da banca são definidos pelos comandos \bancaA, \bancaB, \bancaC e \bancaD.
+%   -> Deixando os parametros dos comandos dos membros da banca vazios (exemplo \bancaA{}), fará
+%      com que as respectivas linhas não apareçam.
 %
-%\bancaAPGTEX{Membro A da banca}
-%\bancaBPGTEX{Membro B da banca}
-%\bancaCPGTEX[Dr., UFSC]{Membro C da banca}
-%\bancaDPGTEX{} % Como exemplo, o membro D da banca não vai aparecer por estar vazio.
-%\bancaEPGTEX{Membro E da banca}
-%%\bancaFPGTEX[Doutor, MIT]{Membro F da banca}
-%%\bancaGPGTEX[Doutor]{Membro G da banca}
+\bancaA{Prof. Dr. Stephen Hawking}
+\bancaB{Dr. Brian Greene}
+\bancaC{Prof. Dr. Michio Kaku}
+\bancaD{Prof. Richard Feynman}
+
 
 \local{Pato Branco}
 
-\data{2011} % Mes de publicação
-%\anoPGTEX{2011} % Ano
-%\datadefesaPGTEX{29/07/2011} % Data da defesa.
+\data{2013} % Mes de publicação
+
+\atanumero{123} % Número da ata de defesa.
 
 
 %%%%%%%%% Fim das definições iniciais %%%%%%%%%
@@ -120,7 +111,7 @@
 % Monta a folha de rosto:
 \folhaderosto
 % Monta a folha de aprovação:
-%\folhadeaprovacao
+\termodeaprovacao
 
 
 % DEDICATÓRIA
@@ -166,8 +157,9 @@ Write here the English version of your Resumo...
 \sumario
 
 
-
+% Exemplo de capítulo.
 \chapter{Cassini finds hydrocarbon rains may fill Titan lakes}
+\label{chap:intro} % Exemplo da label para fazer referências cruzadas ao número do capítulo usando o comando \ref no meio do texto.
 
 CASSINI IMAGING CENTRAL LABORATORY FOR OPERATIONS
 Posted: January 29, 2009
