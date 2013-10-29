@@ -4,7 +4,7 @@ Version=4
 
 [ProjectInfo]
 MainFile=proposta.tex
-UseBibTeX=0
+UseBibTeX=1
 UseMakeIndex=0
 ActiveProfile=LaTeX ⇨ DVI
 ProjectLanguage=pt
