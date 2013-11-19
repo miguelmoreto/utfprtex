@@ -1,3 +1,8 @@
+Versão 1.3.2
+  - Configuração da bibliografia no modelo de TCC foi mudada para não mais
+    abreviar automaticamente os nomes dos autores. Todos os nomes são colocados
+    por extenso na lista de bibliografias. Cabe ao usuário abreviar os nomes de forma
+    adequada, mantendo por extenso apenas sobrenome e prenome, abreviando nomes do meio.
 
 Versão 1.3.1
   - Atualizada capa da proposta de TCC (corigido espaçamento desigual).
