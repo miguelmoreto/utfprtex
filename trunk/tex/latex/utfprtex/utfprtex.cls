@@ -1716,7 +1716,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 % Nome e tipo de string do orientador(a):
 \providecommand{\ABNTorientadordata}{}
 \providecommand{\ABNTorientadorname}{}
-\newcommand{\orientador}[2][Orientador]%
+\newcommand{\orientador}[2][Orientador: ]%
   {\renewcommand{\ABNTorientadorname}{#1}%
    \renewcommand{\ABNTorientadordata}{#2}}
 % Dados do orientador: endereço, etc.
@@ -1729,7 +1729,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 % Nome e tipo de string do orientador(a):
 \providecommand{\ABNTcoorientadordata}{}
 \providecommand{\ABNTcoorientadorname}{}
-\newcommand{\coorientador}[2][Coorientador]%
+\newcommand{\coorientador}[2][Co-orientador: ]%
   {\renewcommand{\ABNTcoorientadorname}{#1}%
    \renewcommand{\ABNTcoorientadordata}{#2}}
 % Dados do coorientador: endereço, etc.	
