@@ -1808,8 +1808,8 @@ FUNCTION {manual}
   format.bvolume.if.no.series output
   format.book.pages output new.sentence
   format.volume.number.series output new.sentence
-  format.note output new.sentence
   format.url
+  format.note output new.sentence
   fin.entry
 }
 
@@ -1827,8 +1827,8 @@ FUNCTION {misc}
   format.dimensions  new.sentence
   format.howpublished output  new.block
   format.volume.number.series output new.sentence
-  format.note output  new.block
   format.url
+  format.note output  new.block
   fin.entry
   empty.misc.check
 }
