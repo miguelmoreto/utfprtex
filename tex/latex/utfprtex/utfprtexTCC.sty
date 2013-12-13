@@ -29,7 +29,7 @@
 
 % Formatando Captions das figuras e tabelas:
 \usepackage[font=small,labelfont=bf]{caption}
-
+\renewcommand{\captionfont}{\small\bf}
 %\RequirePackage{abnt}
 
 % Definição de comandos específicos de TCC:
@@ -58,6 +58,24 @@
 
 % Define o tipo de numeração das páginas
 %\renewcommand{\chaptertitlepagestyle}{plain}
+
+
+% Configuração do Tocloft para formatação do sumário.
+\renewcommand{\cftchapfont}{\bfseries\MakeUppercase} % change chapter headings to uppercase
+\renewcommand{\cftsecfont}{\MakeUppercase}
+\renewcommand{\cftchapafterpnum}{\vspace{4pt}}
+\renewcommand{\cftchapdotsep}{2}
+\renewcommand{\cftsecdotsep}{2} 
+\renewcommand{\cftsubsecdotsep}{2} 
+\renewcommand{\cftsubsubsecdotsep}{2}
+
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforechapskip}{4pt}
+\setlength{\cftbeforesubsecskip}{-5pt}
+\setlength{\cftbeforesubsubsecskip}{-5pt}
+\setlength{\cftsecindent}{0pt}
+\setlength{\cftsubsecindent}{0pt}
+\setlength{\cftsubsubsecindent}{0pt}
 
 
 %\makeatother

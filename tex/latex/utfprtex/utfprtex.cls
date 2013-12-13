@@ -179,6 +179,10 @@
 \RequirePackage{lastpage}
 %\RequirePackage[overload]{textcase}
 
+%\RequirePackage{tocloft}
+
+
+
 %%%%%%%%%%%%%      OPTION DECLARATION      %%%%%%%%%%%%
 
 %% Page numbering squeme
@@ -403,6 +407,8 @@
 \newcommand*{\taxaespacosimples}{1.}
 \newcommand*{\taxaespacoumemeio}{1.35}
 \newcommand*{\taxaespacoduplo}{1.7}
+
+%% Tocloft setup
 
 
 
@@ -1190,41 +1196,41 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 
 % Formatação do sumário
-\renewcommand*\l@chapter[2]{
-    \@dottedtocline{1}{0pt}{1.2em}
-	{\normalsize\ABNTtocchapterfont
-	\ifthenelse{\boolean{ABNTcapchap}}%
-	    {\MakeUppercase{#1}}%
-	    {#1}}
-	{#2}}
+%\renewcommand*\l@chapter[2]{
+%    \@dottedtocline{1}{0pt}{1.2em}
+%	{\normalsize\ABNTtocchapterfont
+%	\ifthenelse{\boolean{ABNTcapchap}}%
+%	    {\MakeUppercase#1}%
+%	    {#1}}
+%	{#2}}
 
-\renewcommand*\l@section[2]{
-    \@dottedtocline{1}{0pt}{2em}
-	{\normalsize\ABNTsectionfont
-	 \ifthenelse{\boolean{ABNTcapsec}}%
-	    {\MakeUppercase{#1}}%
-	    {#1}}
-	{#2}}
+%\renewcommand*\l@section[2]{
+%    \@dottedtocline{1}{0pt}{2em}
+%	{\normalsize\ABNTsectionfont
+%	 \ifthenelse{\boolean{ABNTcapsec}}%
+%	    {\MakeUppercase{#1}}%
+%	    \MakeUppercase{#1}}
+%	{#2}}
 
-\renewcommand*\l@subsection[2]{
-    \@dottedtocline{1}{0pt}{2.8em}
-	{\normalsize\ABNTsectionfont{#1}}
-	{#2}}
+%\renewcommand*\l@subsection[2]{
+%    \@dottedtocline{1}{0pt}{2.8em}
+%	{\normalsize\ABNTsectionfont{#1}}
+%	{#2}}
 
-\renewcommand*\l@subsubsection[2]{
-    \@dottedtocline{1}{0pt}{3.6em}
-	{\normalsize\ABNTsectionfont{#1}}
-	{#2}}
+%\renewcommand*\l@subsubsection[2]{
+%    \@dottedtocline{1}{0pt}{3.6em}
+%	{\normalsize\ABNTsectionfont{#1}}
+%	{#2}}
 
-\renewcommand*\l@paragraph[2]{
-    \@dottedtocline{1}{0pt}{4.4em}
-	{\normalsize\ABNTsectionfont\itshape{#1}}
-	{#2}}
+%\renewcommand*\l@paragraph[2]{
+%    \@dottedtocline{1}{0pt}{4.4em}
+%	{\normalsize\ABNTsectionfont\itshape{#1}}
+%	{#2}}
 
-\renewcommand*\l@subparagraph[2]{
-    \@dottedtocline{1}{25pt}{5.2em}
-	{\normalsize\ABNTsectionfont\itshape{#1}}
-	{#2}}
+%\renewcommand*\l@subparagraph[2]{
+%    \@dottedtocline{1}{25pt}{5.2em}
+%	{\normalsize\ABNTsectionfont\itshape{#1}}
+%	{#2}}
 
 
 % redefine to apply style
@@ -1729,7 +1735,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 % Nome e tipo de string do orientador(a):
 \providecommand{\ABNTcoorientadordata}{}
 \providecommand{\ABNTcoorientadorname}{}
-\newcommand{\coorientador}[2][Co-orientador: ]%
+\newcommand{\coorientador}[2][Coorientador: ]%
   {\renewcommand{\ABNTcoorientadorname}{#1}%
    \renewcommand{\ABNTcoorientadordata}{#2}}
 % Dados do coorientador: endereço, etc.	

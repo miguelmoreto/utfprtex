@@ -17,6 +17,8 @@
 
 \usepackage{amsmath}
 
+
+
 % A linha abaixo chama o pacote hyperref, configurado para usar o programa 
 % dvips.exe na conversão do .dvi para o postscript (.ps). Se você utiliza outra forma de
 % gerar o pdf, altere a linha abaixo com a opção adequada. Veja o manual do 
@@ -65,6 +67,9 @@
 \setlength{\floatsep}{5pt}
 
 
+
+
+
 %%%%%%%%% Início das definições iniciais %%%%%%%%%
 
 
@@ -76,7 +81,7 @@
 % alguma dessas pessoas ser mulher. Se não especificado, vale o valor default.
 %  Valores default: Orientador:  e Co-orientador: .
 \orientador{Prof. Dr. Carl Sagan}
-\coorientador[Co-orientadora: ]{Marie Curie}
+\coorientador[Coorientadora: ]{Marie Curie}
 
 \palavraschave{\LaTeX, formatação de textos, exemplos} % Palavras chave
 \keywords{\LaTeX, text formatting, examples} % Palavras chave em inglês
@@ -122,7 +127,6 @@ Aqui vai o texto da dedicatória. Aqui vai o texto da dedicatória. Aqui vai o tex
 \end{Dedicatoria}
 
 
-
 % EPIGRAFE (opcional).
 \begin{Epigrafe}{Bruce Calvert} % Parametro obrigatorio entre {} é o autor da epigrafe.
 Acreditar é mais fácil do que pensar. Daí existem muito mais crentes do que pensadores.
@@ -133,6 +137,7 @@ Acreditar é mais fácil do que pensar. Daí existem muito mais crentes do que pens
 \begin{Agradecimentos}
 Aqui são os agradecimentos.
 \end{Agradecimentos}
+
 
 % RESUMO:
 \begin{Resumo}
@@ -257,13 +262,16 @@ Este símbolo (\simb[Gradiente]{\nabla}) foi inserido no texto, fora do ambiente 
 
 Conforme \citeonline{abntex-doc} a metodologia proposta é, bla bla bla...
 
+
+\subsubsection{Uma subsubseção do texto}
+
 \cite{TesteSite2013}
 % Bibliografia o arquivo
 
 
 \bibliographystyle{abnt-alf} % Estilo autor-data
-\bibliography{bibliografia}    % As referencias deste testo estão no arquivo modelotese.bib
-%\ABNTaddcontentsline{toc}{chapter}{Referências bibliográficas}
+\bibliography{bibliografia}    % As referencias deste testo estão no arquivo bibliografia.bib
+\ABNTaddcontentsline{toc}{chapter}{Referências} % Para inserir REFERÊNCIAS no sumário.
 
 
 \anexo
