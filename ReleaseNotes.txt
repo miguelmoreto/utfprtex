@@ -1,3 +1,5 @@
+Versão 1.3.3
+	Em construção
 Versão 1.3.2
   - Configuração da bibliografia no modelo de TCC foi mudada para não mais
     abreviar automaticamente os nomes dos autores. Todos os nomes são colocados
