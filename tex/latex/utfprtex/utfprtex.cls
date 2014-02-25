@@ -179,6 +179,7 @@
 \RequirePackage{lastpage}
 %\RequirePackage[overload]{textcase}
 
+
 %\RequirePackage{tocloft}
 
 
@@ -1802,7 +1803,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
    \pretextualchapter{\ABNTabstractname}%
    \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
    \begin{espacosimples}%
-	 \noindent%
+	 %
   }%
   {%
 	\par%
@@ -1821,7 +1822,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
    \pretextualchapter{\resumoname}%
    \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
    \begin{espacosimples}%
-	 \noindent%
+	 %
   }%
   {%
 	\par%
@@ -1858,10 +1859,19 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 \newenvironment{Dedicatoria}%
   {%
    \if@openright\cleardoublepage\else\clearpage\fi%
-   \pretextualchapter{Dedicat\'oria}%
+	~
+	
+	 \vfill
+	%\vspace{0.3\textheight}
+	\hfill
+	\begin{minipage}{0.7\textwidth}%
+   %\pretextualchapter{Dedicat\'oria}%
    %\begin{center}
   }%
-  {%\end{center}
+  {%\end{center}~
+	~
+	\vspace{1cm}
+	\end{minipage}
   }
 
 %%%%%%% Folha de aprovacao %%%%%%%

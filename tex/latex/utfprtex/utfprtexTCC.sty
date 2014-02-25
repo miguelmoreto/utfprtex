@@ -17,6 +17,7 @@
 \RequirePackage[latin1]{inputenc}
 
 \RequirePackage{tocloft}
+\RequirePackage{footmisc}
 
 % Para inserir o 'Figura X: ' na lista de figuras
 \newlength{\mylen}
@@ -28,7 +29,11 @@
 
 
 % Formatando Captions das figuras e tabelas:
-\usepackage[font=small,labelfont=bf]{caption}
+%\usepackage[font=small,labelfont=bf]{caption}
+% Formatando Captions das figuras e tabelas:
+\usepackage[font=small,labelfont=bf,justification=justified,singlelinecheck=false]{caption}
+
+
 \renewcommand{\captionfont}{\small\bf}
 %\RequirePackage{abnt}
 
@@ -88,7 +93,7 @@
 \setlength{\parindent}{2cm}
 \setlength{\parskip}{0.15cm}
 
-
+\renewcommand\footnotelayout{\bfseries}
 
 % DIFINICOES DE TEXTOS:
 \renewcommand{\ABNTtextoaprovacaodata}{Trabalho de Conclusão de Curso de graduação, apresentado à disciplina de Trabalho de Conclusão de Curso 2, do Curso de Engenharia Elétrica da Coordenação de Engenharia Elétrica - {COELT} - da Universidade Tecnológica Federal do Paraná - UTFPR, Campus Pato Branco, como requisito parcial para obtenção do título de Engenheiro.}
