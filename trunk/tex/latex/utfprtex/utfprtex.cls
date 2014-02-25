@@ -313,6 +313,8 @@
   \fi%
 }
 
+%\setcounter{secnumdepth}{4}
+
 %% All options not defined are passed to `report'
 \DeclareOption*{%
   \AddCurrentOptionToList
@@ -1063,8 +1065,12 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
       #6{%
         \@hangfrom{\hskip #3\relax\@svsec}%
           \interlinepenalty \@M
-          \ifthenelse{\boolean{ABNTcapsec}}
-             {\MakeUppercase{#8}}{#8}\@@par}%
+          \ifthenelse{\boolean{ABNTcapsec}}%
+					%
+					% Para alterar quando fica maiuscula ou minuscula alterar o numero
+					% após "\ifnum #2>"
+					%
+             {\MakeUppercase{#8}}{\ifnum #2>1 {#8} \else \MakeUppercase{#8} \fi}\@@par}%
     \endgroup
     \@ifundefined{ABNT#1mark}{}{\csname ABNT#1mark\endcsname{#7}}
     \ABNTaddcontentsline{toc}{#1}{%
@@ -1165,72 +1171,6 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
   \par%
 }
 
-% redefining to apply tocnumpageabnt
-%\renewcommand\l@chapter[2]{%
-  %\ifnum \c@tocdepth >\m@ne
-    %\addpenalty{-\@highpenalty}%
-    %\vskip 1.0em \@plus\p@
-    %\setlength\@tempdima{1.5em}%
-    %\begingroup
-      %\ifthenelse{\boolean{ABNTpagenumstyle}}
-        %{\renewcommand{\@pnumwidth}{3.5em}}
-        %{}
-      %\parindent \z@ \rightskip \@pnumwidth
-      %\parfillskip -\@pnumwidth
-      %\leavevmode \normalsize\ABNTtocchapterfont
-      %\advance\leftskip\@tempdima
-      %\hskip -\leftskip
-      %#1\nobreak\hfil \nobreak%
-      %\ifthenelse{\boolean{ABNTpagenumstyle}}
-         %{%
-          %\hb@xt@\@pnumwidth{\hss 
-            %\ifthenelse{\not\equal{#2}{}}{{\normalfont p.\thinspace#2}}{}}\par
-         %}
-         %{%
-          %\hb@xt@\@pnumwidth{\hss #2}\par
-         %}
-      %\penalty\@highpenalty
-    %\endgroup
-  %\fi}
-
-
-
-% Formatação do sumário
-%\renewcommand*\l@chapter[2]{
-%    \@dottedtocline{1}{0pt}{1.2em}
-%	{\normalsize\ABNTtocchapterfont
-%	\ifthenelse{\boolean{ABNTcapchap}}%
-%	    {\MakeUppercase#1}%
-%	    {#1}}
-%	{#2}}
-
-%\renewcommand*\l@section[2]{
-%    \@dottedtocline{1}{0pt}{2em}
-%	{\normalsize\ABNTsectionfont
-%	 \ifthenelse{\boolean{ABNTcapsec}}%
-%	    {\MakeUppercase{#1}}%
-%	    \MakeUppercase{#1}}
-%	{#2}}
-
-%\renewcommand*\l@subsection[2]{
-%    \@dottedtocline{1}{0pt}{2.8em}
-%	{\normalsize\ABNTsectionfont{#1}}
-%	{#2}}
-
-%\renewcommand*\l@subsubsection[2]{
-%    \@dottedtocline{1}{0pt}{3.6em}
-%	{\normalsize\ABNTsectionfont{#1}}
-%	{#2}}
-
-%\renewcommand*\l@paragraph[2]{
-%    \@dottedtocline{1}{0pt}{4.4em}
-%	{\normalsize\ABNTsectionfont\itshape{#1}}
-%	{#2}}
-
-%\renewcommand*\l@subparagraph[2]{
-%    \@dottedtocline{1}{25pt}{5.2em}
-%	{\normalsize\ABNTsectionfont\itshape{#1}}
-%	{#2}}
 
 
 % redefine to apply style
@@ -1258,7 +1198,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 
 \renewcommand\section{\ABNTstartsection{section}{1}{\z@}%
-                           {-3.5ex \@plus -1ex \@minus -.2ex}%
+                           {-3.25ex \@plus -1ex \@minus -.2ex}%
                            {2.3ex \@plus.2ex}%
                            {\espaco{simples}\normalfont%
                             \ABNTsectionfont}}
@@ -1273,13 +1213,15 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
                            {\espaco{simples}\normalfont%
                             \ABNTsectionfont\normalsize}}
 \renewcommand\paragraph{\ABNTstartsection{paragraph}{4}{\z@}%
-                           {3.25ex \@plus1ex \@minus.2ex}%
-                           {-1em}%
+                           {-3.25ex \@plus -1ex \@minus -.2ex}%
+                           {1.5ex \@plus .2ex}%
                            {\espaco{simples}\normalfont%
-                            \ABNTsectionfont\normalsize}}
-\renewcommand\subparagraph{\ABNTstartsection{subparagraph}{5}{\parindent}%
-                           {3.25ex \@plus1ex \@minus .2ex}%
-                           {-1em}%
+                            \ABNTsectionfont\normalsize}%
+														}
+														
+\renewcommand\subparagraph{\ABNTstartsection{subparagraph}{5}{\z@}%
+                           {-3.25ex\@plus -1ex \@minus -.2ex}%
+                           {1.5ex \@plus .2ex}%
                            {\espaco{simples}\normalfont%
                             \ABNTsectionfont\normalsize}}
 
