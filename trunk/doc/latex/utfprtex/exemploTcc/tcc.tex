@@ -182,8 +182,36 @@ Aqui são os agradecimentos.
 \chapter{Exemplos de uso do utfprtex. Capítulo - Nível 1}
 \label{chap:ex} % Exemplo da label para fazer referências cruzadas ao número do capítulo usando o comando \ref no meio do texto.
 
+Um exemplo de figura pode ser visto na Figura \ref{fig:exemplo}.
 
-\section{Seção - Nível 2} % Conforme template 2010 da BU, o texto da seção é em maiúsculas.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5\linewidth]{PIA11147_modest.eps}
+	\captionsetup{width=.5\textwidth}
+	\caption{Exemplo de figura.}
+	\label{fig:exemplo}
+	\caption*{Fonte: Fonte da figura}
+\end{figure}
+
+Já um exemplo de tabela é apresentado na Tabela \ref{tab:exemplo}.
+
+\begin{table}[htbp]
+	\centering
+	\captionsetup{width=.46\textwidth} % Ajuste para alinhar à tabela. Faça isso depois de terminar a tabela pois o tamanho dela varia conforme o conteúdo.
+	\caption{Exemplo de tabela.}
+		\begin{tabular}{r|c|c}\hline
+		Medidas & Grandeza 1 & Grandeza 2\\ \hline
+		Medida 1 & 0,04 & 0,1 \\
+		Medida 2 & 0,03 & 0,2 \\
+		Medida 3 & 0,05 & 0,3 \\ \hline
+		Média & 0,04 & 0,2 \\ \hline
+		\end{tabular}
+	\caption*{Fonte: Fonte da tabela}
+	\label{tab:exemplo}
+\end{table}
+
+
+\section{Seção - Nível 2}
 
 Exemplo de citação longa:
 \begin{citado}
