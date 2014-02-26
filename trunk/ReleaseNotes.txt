@@ -5,6 +5,9 @@ Versão 1.3.4
   - Corrigida a dedicatória.
   - Footnotes são exibidas em negrito.
   - Atualizados exemplos de proposta e TCC.
+  - Inseridos exemplos com fontes nas figuras e tabelas.
+  - Correção do termo de aprovação de TCC. O mesmo é atualizado automaticamente
+    conforme tenha um ou dois autores.
 Versão 1.3.2
   - Configuração da bibliografia no modelo de TCC foi mudada para não mais
     abreviar automaticamente os nomes dos autores. Todos os nomes são colocados
