@@ -1660,7 +1660,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 
 
-\newcommand{\autorformat}{\large\ABNTsectionfont}
+\newcommand{\autorformat}\textsc{{\large\ABNTsectionfont}}
 
 % Nome e tipo de string do orientador(a):
 \providecommand{\ABNTorientadordata}{}
