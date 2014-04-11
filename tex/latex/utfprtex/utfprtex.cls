@@ -1659,8 +1659,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 \newcommand{\autorBdados}[1]{\renewcommand{\ABNTautorBdados}{#1}}
 
 
-
-\newcommand{\autorformat}\textsc{{\large\ABNTsectionfont}}
+\newcommand{\autorformat}{\large\ABNTsectionfont}
 
 % Nome e tipo de string do orientador(a):
 \providecommand{\ABNTorientadordata}{}
@@ -1690,7 +1689,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 \providecommand{\ABNTtitulodata}{}
 \newcommand{\titulo}[1]{\renewcommand{\ABNTtitulodata}{#1}}
-\newcommand{\tituloformat}{\LARGE\ABNTchapterfont}
+\newcommand{\tituloformat}{\Large\ABNTchapterfont}
 
 \providecommand{\ABNTcomentariodata}{}
 \newcommand{\comentario}[1]{\renewcommand{\ABNTcomentariodata}{#1}}
