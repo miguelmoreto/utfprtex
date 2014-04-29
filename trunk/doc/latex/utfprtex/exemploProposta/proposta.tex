@@ -39,7 +39,7 @@
 
 \usepackage{nomencl} % Pacote necessário para a lista de siglas.
 % O comando a seguir diz ao Latex para salvar as siglas em um arquivo separado:
-\fazlistasiglas[Lista de Abreviaturas e Siglas] % Parâmetro opcional é o título da lista.
+%\fazlistasiglas[Lista de Abreviaturas e Siglas] % Parâmetro opcional é o título da lista.
 
 
 % Pacote para inserção de figuras em formato .eps.
@@ -88,7 +88,6 @@
 \coorientador[Coorientadora]{Nome da coorientadora}
 \coorientadorDados{Endereço coorientador\\ emailcoorientador@email.com\\ telefone coorientador}
 
-
 \areaconcentracao{Área de concentração 1} % Área de concentração
 
 \palavraschave{\LaTeX, formatação de textos, exemplos} % Palavras chave, não usado na proposta de TCC
@@ -130,6 +129,7 @@
 
 \FichaDeDados
 
+%==================================================================
 \chapter{Caracterização e Justificativa do TCC}
 \label{cap:caracterizacao} % o label serve como identificador para fazer referência cruzada ao número do capítulo no meio do texto.
 
@@ -139,6 +139,7 @@ Descrever objetivamente, com o apoio da literatura, o problema focalizado, sua r
 
 NO MÁXIMO 2 PÁGINAS.
 
+%===================================================================
 \chapter{Objetivos e Metas}
 \label{cap:objetivos}
 
@@ -148,7 +149,7 @@ Explicitar os objetivos e metas do projeto. Justificar a proposição e sua inserç
 
 Deve conter os objetivos Geral e Específicos.
 
-
+%====================================================================
 \chapter{Metodologia e Procedimentos}
 \label{cap:metodologia}
 
@@ -158,24 +159,24 @@ Descrever sucintamente a metodologia empregada para a execução do projeto e como
 
 NO MÁXIMO(3 PÁGINAS).
 
+%---------------------------------------------------------------------
 \section{Método de Pesquisa}
 \label{sec:metodo}
 
 Tipo de pesquisa (quanto aos objetivos e procedimentos), método e técnicas de pesquisa utilizados, tanto para coleta quanto para análise das informações. As proposições técnicas do Projeto.
 
+%---------------------------------------------------------------------
 \section{Plano de Trabalho}
 \label{sec:plano}
 
 Apresentação da abordagem que se pretende dar para desenvolver o projeto; descrição detalhada das atividades a serem executadas.
-
+%-------------------------------------------------------------------
 \section{Cronograma}
 \label{sec:cronograma}
 
 Utilizar o gráfico de Gantt para apresentação do cronograma. Pode ser gerado pelo Latex usando o pacote \verb|pgfgantt|. Um exemplo é dado abaixo, na Figura \ref{fig:gantt}. Veja mais opções desse pacote no seu manual, arquivo pdf, em 
 
 \url{http://ctan.org/tex-archive/graphics/pgf/contrib/pgfgantt}
-
-
 
 São definidas as seguintes atividades:
 
@@ -186,7 +187,6 @@ São definidas as seguintes atividades:
 	\item Escrita da monografia.
 	\item Defesa da monografia.
 \end{enumerate}
-
 
 
 \begin{figure}[htbp]
@@ -219,25 +219,23 @@ title height=.9
 	\caption*{Fonte: Autoria Própria}
 	\label{fig:gantt}
 \end{figure}
-
-
-
+%-----------------------------------------------------------------------------
 \section{Plano Organizacional}
 \label{sec:planoorg}
 
 Definir os papéis, as responsabilidades e autoridades no âmbito do projeto, quando o projeto for desenvolvido em equipe.
-
+%---------------------------------------------------------------------------------
 \section{Recursos Necessários}
 \label{sec:recursos}
 
 Quantidade e especialidade dos recursos humanos; materiais necessários; viagens e estadias; orçamento do projeto, mostrando o custo dos recursos; outros recursos.
-
+%-----------------------------------------------------------------------------
 \section{Riscos e Dificuldades}
 \label{sec:riscos}
 
 Comentar sobre possíveis dificuldades e riscos potenciais que poderão interferir na execução das ações propostas e comprometer o alcance das metas e objetivos preconizados. Explicitar as medidas previstas para contornar ou superar essas dificuldades.
 
-
+%=============================================================================
 \chapter{Resultados Esperados}
 \label{cap:resultados}
 
@@ -246,7 +244,7 @@ Descrever os resultados e/ou produtos esperados.
 Estimar a repercussão e/ou impactos socioeconômicos, técnico-científicos e ambientais dos resultados esperados na solução do problema focalizado.
 
 NO MÁXIMO ($\frac{1}{2}$ PÁGINA)
-
+%==============================================================================
 \chapter{Exemplo de uso}
 
 Esse é um exemplo de uso. Veja mais no capítulo \ref{cap:exemplos_gerais}.
@@ -262,9 +260,9 @@ For several years, Cassini scientists have suspected that dark areas near the no
 	\centering
 	\captionsetup{width=0.70\textwidth, font=footnotesize, textfont=bf} % Tamanho da legenda da figura (70% da largura do texto).
 	\includegraphics[width=0.7\linewidth]{PIA11147_modest.eps} % Nome do arquivo e tamanho da figura (70% da largura do texto).
-	\caption{These mosaics of the south pole of Saturn's moon Titan, made from images taken almost one year apart, show changes in dark areas that may be lakes filled by seasonal rains of liquid hydrocarbons. Credit: NASA/JPL/Space Science Institute.}
+	\caption{These mosaics of the south pole of Saturn's moon Titan, made from images taken almost one year apart, show changes in dark areas that may be lakes filled by seasonal rains of liquid hydrocarbons.}
 	\vspace{-3.5mm}
-	\caption*{Fonte: Autoria Própria}
+	\caption*{Fonte: NASA/JPL/Space Science Institute}
 	\label{fig:mosaics} % Label para usar como referência cruzada.
 \end{figure}
  
@@ -290,7 +288,7 @@ Titan and the transformations on its surface brought about by the changing seaso
 
 The Cassini-Huygens mission is a cooperative project of NASA, the European Space Agency (ESA) and the Italian Space Agency. The Jet Propulsion Laboratory  (JPL), a division of the California Institute of Technology in Pasadena, manages the Cassini-Huygens mission for NASA's Science Mission Directorate, Washington. The Cassini orbiter and its two onboard cameras were designed, developed and assembled at JPL. The imaging team consists of scientists from the U.S., England, France, and Germany. The imaging operations center and team leader (Dr. C. Porco) are based at the Space Science Institute in Boulder, Colo. The Applied Physics Laboratory, a division of Johns Hopkins University, meets critical national challenges through the innovative application of science and technology.
 
-
+%========================================================================================
 \chapter{Exemplos gerais} % Conforme template 2010 da BU, o texto da seção é em maiúsculas.
 \label{cap:exemplos_gerais}
 
@@ -299,8 +297,9 @@ Exemplo de citação longa:
 The Cassini-Huygens mission is a cooperative project of NASA, the European Space Agency (ESA) and the Italian Space Agency. The Jet Propulsion Laboratory  (JPL), a division of the California Institute of Technology in Pasadena, manages the Cassini-Huygens mission for NASA's Science Mission Directorate, Washington.
 \end{citado}
 
-
+%----------------------------------------------------------------------------------------
 \section{Exemplos de equação}
+\label{sec:equacao}
 
 Em \eqref{eq:equacao1} pode se ver um exemplo de equação. Usa-se o comando \verb|\ref| para referenciar uma equação pelo seu label.
 
@@ -325,8 +324,9 @@ A equação \eqref{eq:equacao4} são duas com um só número:
 \end{equation}
 
 Veja mais sobre equações no pacote \verb|amsmath|. Consulte o manual desse pacote em \url{http://www.ctan.org/pkg/amsmath}:
-
+%--------------------------------------------------------------------------------
 \section{Exemplos de citação de referências bibliográficas}
+\label{sec:refbibliogr}
 
 \cite{Grainger1994}
 
@@ -340,8 +340,6 @@ Conforme \citeonline{abntex-doc} a metodologia proposta é, bla bla bla...
 \bibliographystyle{abnt-alf} % Estilo autor-data
 \bibliography{bibliografia}    % As referencias deste testo estão no arquivo bibliografia.bib
 %\ABNTaddcontentsline{toc}{chapter}{Referências bibliográficas}
-
-
 
 \end{document}
 
