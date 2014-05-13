@@ -6,7 +6,7 @@ Version=4
 MainFile=tcc.tex
 UseBibTeX=1
 UseMakeIndex=1
-ActiveProfile=LaTeX ⇨ PS ⇨ PDF
+ActiveProfile=LaTeX ⇨ DVI ⇨ PDF
 ProjectLanguage=pt
 ProjectDialect=BR
 
