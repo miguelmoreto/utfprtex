@@ -1837,7 +1837,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 	 \newcommand{\epigrafeautor}{#1}
    \hspace{0.2\textwidth}
    \begin{minipage}{0.6\textwidth}
-   \vspace{0.3\textheight}
+   \vspace{0.85\textheight}
    \begin{itshape}
   }%
   {\end{itshape}
