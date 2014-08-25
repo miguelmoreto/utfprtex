@@ -1408,6 +1408,57 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 
 \let\listadefiguras\listoffigures\relax
 
+%================== Lista de Quadros
+%\renewcommand{\listofframes}{%
+%  \ifthenelse{\boolean{@twocolumn}}%
+%    {\setboolean{ABNTrestorecol}{true}\onecolumn}%
+%    {\setboolean{ABNTrestorecol}{false}}%
+%  \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{listofframes.}}{}
+%  \pretextualchapter{\listframename}
+%  \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
+%  \@starttoc{loq}%
+%  \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
+%}%
+
+%\let\listadequadros\listofframes\relax
+
+%========= Lista de Quadros ===========================================
+%\newcommand{\listadequadros}{%
+
+%  \ifthenelse{\boolean{@twocolumn}}%
+%    {\setboolean{ABNTrestorecol}{true}\onecolumn}%
+%    {\setboolean{ABNTrestorecol}{false}}%
+%  \pretextualchapter{LISTA DE QUADROS}
+%  \begin{espacosimples}
+%  \@starttoc{qdr}%
+%  \end{espacosimples}
+%  \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
+%}%
+%\newcounter{quadro}
+%\setcounter{quadro}{0}
+%\newcommand{\ext@quadro}{qdr}
+%\newcommand{\quadro}[1]{%
+%	\captionsetup{type=quadro,name=Quadro}%FIXME só funciona em TEXLIVE
+%	\caption[#1]{#1}
+%}
+%\newcommand{\quadfillnum}[1]{%
+%\setlength\parskip{0.25cm}
+%  {\hspace{0em}\normalfont\dotfill}\nobreak
+%  \hb@xt@\@pnumwidth{\hfil\normalfont #1}{}
+%  \begin{spacing}{\taxaespacomeio}\par\end{spacing}
+%  }
+%\newcommand{\l@quadro}[2]
+%{
+%	\leftskip 3.4em
+%	\rightskip 1.8em
+%	\parfillskip -\rightskip
+%	\parindent 0em
+%	\@tempdima 2.8em
+%	--\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+%	{\MakeUppercase{Quadro} \normalfont #1}\nobreak \quadfillnum{#2}
+%}
+%=======================================================================================
+
 % ====  \listoftables  ====
 % Same comments in \listoffigures
 \renewcommand\listoftables{%
