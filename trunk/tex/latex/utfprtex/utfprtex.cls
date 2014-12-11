@@ -499,7 +499,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
    \setlength{\headsep}{1cm-\headheight}
    % The distance beetwen the paper border and the number must be 3cm
    % 3cm=\topmargin+\voffset+1in
-   \setlength{\topmargin}{2cm-1in-\voffset}
+   \setlength{\topmargin}{2cm-1in-\voffset} %{2cm-1in-\voffset}
 	 % The inferior border must be 2cm
    % \paperheight=\topmargin+\voffset+1in+\headheight+\headsep+\textheight+2cm
    \setlength{\textheight}% 
@@ -1601,7 +1601,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 	
 % \listadesimbolos: comando que imprime a lista de simbolos
 \newcommand{\listadesimbolos}{
-	\pretextualchapter{Lista de S\'imbolos}
+  \pretextualchapter{Lista de S\'imbolos}
 	{\setlength{\parindent}{0cm}
 	 % Abrindo arquivo para leitura e verificando se ele existe:
 		 \newread\instream
