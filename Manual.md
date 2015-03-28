@@ -1,0 +1,36 @@
+# Introdução sobre o utfprtex #
+
+### Pacotes requeridos ###
+
+O utfprtex requer alguns pacotes para funcionar corretamente, normalmente sua distribuição LaTeX (MikTeX, TeXLive, etc.) se encarrega de instalar (ou perguntar para instalar) os pacotes faltantes. Porém, caso seja necessário, você deve ter os seguintes pacotes instalados:
+  * `ifthen`
+  * `calc`
+  * `multicol`
+  * `babel`
+  * `lastpage`
+  * `inputenc`
+  * `setspace`
+  * `nomencl` (para a lista de siglas)
+  * `abntcite` (para as referências bibliográficas)
+  * `tocloft`
+  * `caption`
+
+# Preâmbulo #
+
+Add your content here.
+
+
+# Elementos pré-textuais #
+
+Add your content here.
+
+# Corpo do texto #
+
+Add your content here.
+
+# Referências bibliográficas #
+
+Add your content here.  Format your content with:
+  * Text in **bold** or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
